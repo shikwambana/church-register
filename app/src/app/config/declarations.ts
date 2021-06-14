@@ -17,8 +17,6 @@ window['neutrinos'] = {
 //CORE_REFERENCE_IMPORTS
 //CORE_REFERENCE_IMPORT-attendance_dashboardComponent
 import { attendance_dashboardComponent } from '../components/attendance_dashboardComponent/attendance_dashboard.component';
-//CORE_REFERENCE_IMPORT-backupofmarkregisterComponent
-import { backupofmarkregisterComponent } from '../components/backupofmarkregisterComponent/backupofmarkregister.component';
 //CORE_REFERENCE_IMPORT-apiService
 import { apiService } from '../services/api/api.service';
 //CORE_REFERENCE_IMPORT-markregisterComponent
@@ -52,8 +50,6 @@ export const appDeclarations = [
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-attendance_dashboardComponent
 attendance_dashboardComponent,
-//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-backupofmarkregisterComponent
-backupofmarkregisterComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-markregisterComponent
 markregisterComponent,
 
