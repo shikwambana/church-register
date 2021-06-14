@@ -1,0 +1,116 @@
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+  <div fxLayout="column wrap" class="markContainer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img imgSrc="Web/header.png" class="headerImage"></div>
+    <div fxLayout="column wrap" style="width: 35em;" class="headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <h1 style="font-size: 1.5em; text-align: center">
+        15:30 COVID-19 SCREENING REGISTER</h1>
+    </div>
+    <div fxLayout="column wrap" style="padding: 25px;" class="headerText" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false" *ngIf="searchForNumber" ngClass.xs="mobileColumn">
+      <div fxLayout="column wrap" style="width: 80%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput [(ngModel)]="emailNumber" placeholder="Enter Email or Phone Number" [required]="false">
+          <mat-error align="start" *ngIf="!emailNumber">Please enter a valid email address or phone number</mat-error>
+          <mat-label>Enter Email or Phone Number</mat-label>
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="findMe()">Find Me</button><button mat-button class="secondaryBtn" (click)="removeData(); ">Clear</button></div>
+      </div>
+    </div>
+    <div fxLayout="column wrap" style="width: 35em;" class="fadeInDown headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="displayRegisterForm">
+      <form [formGroup]="registerForm" #myForm="ngForm" style="display:contents">
+        <div fxLayout="column wrap" style="padding: 25px;" fxLayoutGap="15px" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false" id="theForm">
+          <mat-accordion style="width: 100%;">
+            <mat-expansion-panel [expanded]="enterData">
+              <mat-expansion-panel-header>
+
+                <mat-panel-title>
+                  Personal Details
+                </mat-panel-title>
+                <mat-panel-description>
+                  {{registerForm.controls.firstName.value}} {{registerForm.controls.lastName.value}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [required]="true" formControlName="firstName">
+                  <mat-label>Name</mat-label>
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [required]="true" formControlName="lastName">
+                  <mat-label>Surname</mat-label>
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [required]="true" formControlName="contactNumber">
+                  <mat-label>Contact Number</mat-label>
+                  <mat-icon matSuffix>local_phone</mat-icon>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [required]="true" formControlName="email">
+                  <mat-label>Email</mat-label>
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+                <mat-radio-group formControlName="gender" [labelPosition]="&apos;after&apos;" [required]="true">
+                  <div fxLayout="column wrap" style="margin-bottom:20px" fxLayoutGap="10px" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                    <p>
+                      Gender</p>
+                    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-radio-button [value]="&apos;Male&apos;" [required]="false" [labelPosition]="&apos;after&apos;">Male</mat-radio-button>
+                    </div>
+                    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-radio-button [value]="&apos;Female&apos;" [required]="false">Female</mat-radio-button>
+                    </div>
+                  </div>
+                </mat-radio-group>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [required]="true" formControlName="address">
+                  <mat-label>Address </mat-label>
+                  <mat-icon matSuffix>location_on</mat-icon>
+                </mat-form-field>
+                <mat-radio-group formControlName="firstTimeVisitor" [labelPosition]="&apos;after&apos;" [required]="true">
+                  <div fxLayout="column wrap" style="margin-bottom:20px" fxLayoutGap="10px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                    <p>
+                      Are You a 1st Time Visitor?</p>
+                    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-radio-button [value]="true" [required]="false">Yes</mat-radio-button>
+                    </div>
+                    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                      <mat-radio-button [value]="false" [required]="true" [labelPosition]="&apos;after&apos;">No</mat-radio-button>
+                    </div>
+                  </div>
+                </mat-radio-group>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [required]="true" formControlName="whoInvitedYou">
+                  <mat-label>Who Invited You? (Name &amp; Surname)</mat-label>
+                  <mat-icon matSuffix>person_add</mat-icon>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+                  <mat-select formControlName="tribe" placeholder="Which Tribe are you in? *" [required]="false">
+                    <ng-template ngFor let-option [ngForOf]="selectATribe" let-i="index">
+                      <mat-option [value]="option">{{option}}</mat-option>
+                    </ng-template>
+                  </mat-select>
+
+                </mat-form-field>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <p>
+            Symptoms</p>
+          <div fxLayout="column wrap" fxLayoutAlign="start baseline" [fxShow]="true" [fxHide]="false">
+            <mat-checkbox name="{{item}}" (change)="addSymptom($event)" value="{{item}}" [required]="false" *ngFor="let item of selectSymptoms">{{item}}</mat-checkbox>
+          </div>
+          <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput [required]="true" formControlName="temperature">
+            <mat-label>Temperature: </mat-label>
+            <mat-icon matSuffix>info</mat-icon>
+          </mat-form-field>
+          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit()">Submit</button><button mat-button class="secondaryBtn" (click)="removeData(); ">Clear</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

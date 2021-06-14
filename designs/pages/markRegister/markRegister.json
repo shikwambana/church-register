@@ -1,0 +1,14 @@
+{
+    "appPageId": "729f5e92-bb97-323f-92eb-f05785eff249",
+    "appPageName": "markRegister",
+    "componentName": "markregisterComponent",
+    "selectorName": "bh-markregister",
+    "htmlFileName": "markregister.template.html",
+    "tsFileName": "markregister.component.ts",
+    "createDate": "2021-05-03T21:36:29.656Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

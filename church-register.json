@@ -1,0 +1,13 @@
+{
+    "displayName": "church-register",
+    "appName": "church-register",
+    "description": "church register app",
+    "lastModified": "2021-05-03T21:36:02.277Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "uiOnly",
+    "templateName": "blank",
+    "createDate": "2021-05-03T21:35:59.311Z",
+    "analyticsId": "a10fe318-d4eb-9daa-c0d8-fad8d930e22d",
+    "createdStudioVersion": "7.7.2"
+}

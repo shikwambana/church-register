@@ -1,0 +1,84 @@
+/*Importing default angular material css theme. */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "nDefaults.scss";
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap');
+
+$primaryColour: #009595;
+$darkColour: #005656;
+$white: white;
+
+
+html {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: #ede7f6;
+}
+.headerImage {
+    width: 100%;     
+    max-width: 35em;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px 3px #808080ba;
+}
+
+.headerText {
+    // text-align: center;
+    padding: 15px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 37%);
+    width: 35em;
+    margin: 15px 0;
+}
+
+.markContainer {
+    margin: 30px auto; 
+    width: 100%;    
+    padding: 0 12px;
+}
+
+.mobileColumn {
+    width: 100%;
+    padding: 15px;
+}
+
+.primaryBtn {
+    background-color: $primaryColour;
+    color: $white;
+    min-width: 120px !important;
+}
+
+.secondaryBtn {
+    margin: 0 10px !important;
+    border: 1px solid seagreen !important;
+    min-width: 80px !important;
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+    color: $primaryColour;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle, 
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+    border-color: $primaryColour !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: $primaryColour;
+}
+
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInDown {
+    animation: fadeInUp .7s;
+  }

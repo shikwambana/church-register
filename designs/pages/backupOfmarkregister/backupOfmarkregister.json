@@ -1,0 +1,14 @@
+{
+    "appPageId": "9966f18c-c5e6-58ba-1a3b-e39c854038f5",
+    "appPageName": "backupOfmarkregister",
+    "componentName": "backupofmarkregisterComponent",
+    "selectorName": "bh-backupofmarkregister",
+    "htmlFileName": "backupofmarkregister.template.html",
+    "tsFileName": "backupofmarkregister.component.ts",
+    "createDate": "2021-05-30T00:33:42.441Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

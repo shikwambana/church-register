@@ -1,0 +1,14 @@
+{
+    "appPageId": "f571a41a-4ae6-5bf3-9b5a-c345cc0880e4",
+    "appPageName": "attendance_dashboard",
+    "componentName": "attendance_dashboardComponent",
+    "selectorName": "bh-attendance_dashboard",
+    "htmlFileName": "attendance_dashboard.template.html",
+    "tsFileName": "attendance_dashboard.component.ts",
+    "createDate": "2021-06-09T23:20:05.933Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

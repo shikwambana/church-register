@@ -1,0 +1,22 @@
+{
+    "routes": [
+        {
+            "component": "markregisterComponent",
+            "path": "home"
+        },
+        {
+            "path": "admin",
+            "component": "attendance_dashboardComponent"
+        },
+        {
+            "path": "''",
+            "redirectTo": "/home",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

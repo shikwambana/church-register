@@ -1,0 +1,56 @@
+{
+    "packages": [
+        {
+            "name": "neutrinos-all-default-nodes-plugin",
+            "default": true,
+            "visible": false,
+            "dependencies": [
+                {
+                    "name": "ndefault-all-nodes",
+                    "packageType": "studio-nodes",
+                    "nodes": {
+                        "server": [
+                            "ChildProcess",
+                            "CORS",
+                            "DBConfig",
+                            "GlobalMiddlewareEnd",
+                            "GlobalMiddlewareStart",
+                            "GlobalNext",
+                            "HttpIn",
+                            "HttpOut",
+                            "HttpProxyConfig",
+                            "HttpRequest",
+                            "MiddlewareEnd",
+                            "MiddlewareStart",
+                            "Next",
+                            "RouteMiddlewareEnd",
+                            "RouteMiddlewareStart",
+                            "ServerLog",
+                            "TLSConfig"
+                        ],
+                        "common": [
+                            "CallService",
+                            "Catch",
+                            "Comments",
+                            "Async",
+                            "Script",
+                            "ServiceVariables",
+                            "Start",
+                            "Switch",
+                            "Unknown"
+                        ],
+                        "client": [
+                            "Environment",
+                            "HttpRequest",
+                            "Log",
+                            "Navigation",
+                            "SnackBar",
+                            "Storage",
+                            "CallSSDApi"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "neutrinos-all-default-nodes-plugin": {
+        "name": "neutrinos-all-default-nodes-plugin",
+        "default": true,
+        "deps": {
+            "ndefault-all-nodes": {
+                "name": "ndefault-all-nodes",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "server": [
+                        "ChildProcess",
+                        "CORS",
+                        "DBConfig",
+                        "GlobalMiddlewareEnd",
+                        "GlobalMiddlewareStart",
+                        "GlobalNext",
+                        "HttpIn",
+                        "HttpOut",
+                        "HttpProxyConfig",
+                        "HttpRequest",
+                        "MiddlewareEnd",
+                        "MiddlewareStart",
+                        "Next",
+                        "RouteMiddlewareEnd",
+                        "RouteMiddlewareStart",
+                        "ServerLog",
+                        "TLSConfig"
+                    ],
+                    "common": [
+                        "CallService",
+                        "Catch",
+                        "Comments",
+                        "Async",
+                        "Script",
+                        "ServiceVariables",
+                        "Start",
+                        "Switch",
+                        "Unknown"
+                    ],
+                    "client": [
+                        "Environment",
+                        "HttpRequest",
+                        "Log",
+                        "Navigation",
+                        "SnackBar",
+                        "Storage",
+                        "CallSSDApi"
+                    ]
+                }
+            }
+        },
+        "parentDeps": {}
+    },
+    "ndefault-all-nodes": {
+        "name": "ndefault-all-nodes",
+        "packageType": "studio-nodes",
+        "deps": {},
+        "parentDeps": {
+            "neutrinos-all-default-nodes-plugin": true
+        },
+        "nodes": {
+            "server": [
+                "ChildProcess",
+                "CORS",
+                "DBConfig",
+                "GlobalMiddlewareEnd",
+                "GlobalMiddlewareStart",
+                "GlobalNext",
+                "HttpIn",
+                "HttpOut",
+                "HttpProxyConfig",
+                "HttpRequest",
+                "MiddlewareEnd",
+                "MiddlewareStart",
+                "Next",
+                "RouteMiddlewareEnd",
+                "RouteMiddlewareStart",
+                "ServerLog",
+                "TLSConfig"
+            ],
+            "common": [
+                "CallService",
+                "Catch",
+                "Comments",
+                "Async",
+                "Script",
+                "ServiceVariables",
+                "Start",
+                "Switch",
+                "Unknown"
+            ],
+            "client": [
+                "Environment",
+                "HttpRequest",
+                "Log",
+                "Navigation",
+                "SnackBar",
+                "Storage",
+                "CallSSDApi"
+            ]
+        }
+    }
+}
