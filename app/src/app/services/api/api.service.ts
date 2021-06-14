@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest, HttpParams } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { query } from '@angular/animations';
 
 @Injectable()
 export class apiService {
@@ -43,6 +44,26 @@ export class apiService {
             console.log("Error getting documents: ", error);
         })
        
+    }
+
+    getEveryone(page?){
+
+        return this.db.collection('people').ref
+        .get().then( query =>{
+            if (!query.empty) {
+                let arr = []
+                const snapshot = query.docs;
+                snapshot.forEach(element => {
+                    arr.push(element.data())
+                });;
+                this.openSnackBar('We got all the data')
+
+                return arr
+              } else {
+                this.openSnackBar('Something went wrong')
+                // not found
+              }
+        })
     }
 
     openSnackBar(message){

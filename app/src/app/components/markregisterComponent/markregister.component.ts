@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { apiService } from '../../services/api/api.service';
-import { ViewportScroller } from "@angular/common";
+
 /*
 Client Service import Example:
 import { servicename } from 'app/sd-services/servicename';
@@ -20,16 +20,19 @@ import { HeroService } from '../../services/hero/hero.service';
 })
 
 export class markregisterComponent extends NBaseComponent implements OnInit {
-    selectATribe = ["Zinhle & Thoko", "Pearson & Blessing", "Fumani & Mogau", "Arch & Busi", "Sfiso", "Michael & Lineo", "Thlalefo & Masego", "Jan & Abrie", "Marius & Lourindi", "Khutso & Lydia", "Jaco & Sylvi", "Justus & Mandy", "Lebo & Ntombi", "Ps Bert & Ps Charné", "Don't Know", "Other Church",]
-    selectSymptoms = ["Fever/Chills", "Cough", "Shortness of breath", "Fatigue", "Muscle or body aches", "Headache", "Loss of taste/Smell", "Sore throat", "Nausea/Vomiting", "Diarrhea", "Congestion/Running", "None of the above",]
+    selectATribe = ["Zinhle and Thoko", "Pearson and Blessing", "Fumani and Mogau", "Arch and Busi", "Sfiso", "Michael and Lineo", "Thlalefo and Masego", "Jan and Abrie", "Marius and Lourindi", "Khutso and Lydia", "Jaco and Sylvi", "Justus and Mandy", "Lebo and Ntombi", "Bert and Charné", "Don't Know", "Other Church",]
+    selectSymptoms = ["Fever/Chills", "Cough", "Shortness of breath", "Fatigue", "Muscle or body aches", "Headache", "Loss of taste/Smell", "Sore throat", "Nausea/Vomiting", "Diarrhea", "Congestion/Running","None of the above"]
+    selectSymptomsBackup = ["Fever/Chills", "Cough", "Shortness of breath", "Fatigue", "Muscle or body aches", "Headache", "Loss of taste/Smell", "Sore throat", "Nausea/Vomiting", "Diarrhea", "Congestion/Running","None of the above"]
+    NoSymptoms = ["None of the above"]
     registerForm: FormGroup;
     submitted = false;
     searchForNumber: boolean = true;
     displayRegisterForm: boolean = false;
     emailNumber: string = '';
-    enterData: boolean = false;
-    message: string = ''
-    constructor(private formBuilder: FormBuilder, private api: apiService, private scroller: ViewportScroller) {
+    enterData : boolean = false;
+    message : string = ''
+    symptoms = []
+    constructor(private formBuilder: FormBuilder, private api: apiService) {
         super();
     }
 
@@ -45,7 +48,7 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
             firstTimeVisitor: [true, Validators.required],
             whoInvitedYou: ['', Validators.required],
             tribe: ['', Validators.required],
-            symptoms: [[], Validators.required],
+            symptoms: [[]],
             temperature: ['', Validators.required],
             date: [new Date(), Validators.required]
         })
@@ -58,20 +61,15 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
         const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
         if (emailRegex.test(this.emailNumber)) {
-            queryType = 'Email Address'
+            queryType = 'email'
         } else {
-            queryType = 'Phone Number'
+            queryType = 'contactNumber'
         }
-
-        this.displayRegisterForm = true
 
         this.api.searchUser(queryType, this.emailNumber).then(res => {
             console.log(res)
-            this.registerForm.reset()
-
             if (!res) {
-                this.scroller.scrollToAnchor("theForm");
-                if (queryType == 'Email Address') {
+                if (queryType == 'email') {
                     this.registerForm.patchValue({
                         email: this.emailNumber
                     })
@@ -82,26 +80,28 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
                 }
                 this.enterData = true;
                 this.displayRegisterForm = true
-            } else {
+            } else { 
                 this.registerForm.patchValue({
-                    firstName: res['Name'],
-                    lastName: res['Surname'],
-                    contactNumber: res["Phone Number"],
-                    email: res["Email Address"],
-                    gender: res['Gender'],
-                    address: res["Where do you live? Building Name or Area"],
+                    firstName: res['firstName'],
+                    lastName: res['lastName'],
+                    contactNumber: res["contactNumber"],
+                    email: res["email"],
+                    gender: res['gender'],
+                    address: res["address"],
                     firstTimeVisitor: false,
-                    whoInvitedYou: res["Invited by? (Name and Surname)"],
-                    tribe: res["What Tribe are you in?"],
+                    whoInvitedYou: res["whoInvitedYou"],
+                    tribe: res["tribe"],
                     date: new Date()
                 })
+                this.displayRegisterForm = true
             }
         })
     }
 
-    removeData() {
+    removeData(){
         this.emailNumber = ''
         this.registerForm.reset()
+        this.displayRegisterForm = false
     }
 
     get f() { return this.registerForm.value; }
@@ -111,28 +111,29 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.registerForm.invalid) {
+           this.api.openSnackBar('Please complete all fields');
             return;
         }
 
         // display form values on success
         // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-        this.api.addPerson(this.f).then(res => {
-            this.api.openSnackBar('Your Details have being saved');
-            this.onReset();
-        }, err => {
+        this.api.addPerson(this.f).then(res =>{
+           this.api.openSnackBar('Your Details have being saved');
+           this.onReset();
+        }, err =>{
             console.log(err)
         })
     }
 
     onReset() {
         this.submitted = false;
-        this.registerForm.reset();
+        this.registerForm.reset()
     }
 
 
     addSymptom(event) {
-
-        let array = this.registerForm.controls['symptoms'].value
+        return
+        let array = this.symptoms
         let value = event['source']['value']
         let present = array.findIndex(symptom => {
             return symptom == value
@@ -147,6 +148,12 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
         this.registerForm.patchValue({
             symptoms: array
         })
+
+        if(value == "None of the above" && this.registerForm.controls['symptoms'].value.length == 0){
+            this.selectSymptoms = this.selectSymptomsBackup
+        }else if(value == "None of the above" && this.registerForm.controls['symptoms'].value.length == 1){
+            this.selectSymptoms = this.NoSymptoms
+        }
     }
 
 }
