@@ -95,7 +95,7 @@
                 },
                 {
                     "_key": "fxLayoutGap",
-                    "_value": "",
+                    "_value": "10px",
                     "_type": "kv",
                     "_attrDef": "p"
                 },
@@ -612,13 +612,13 @@
                         },
                         {
                             "_key": "fxLayoutGap",
-                            "_value": "20px",
+                            "_value": "5px",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "wrap",
-                            "_value": "wrap",
+                            "_value": "",
                             "_type": "a",
                             "_attrDef": "p"
                         },

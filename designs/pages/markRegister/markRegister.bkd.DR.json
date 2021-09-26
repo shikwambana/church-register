@@ -879,7 +879,7 @@
                         },
                         {
                             "_key": "style",
-                            "_value": "width: 80%;",
+                            "_value": "width: 86%;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -1232,7 +1232,7 @@
                             },
                             {
                                 "_key": "wrap",
-                                "_value": "wrap",
+                                "_value": "",
                                 "_type": "a",
                                 "_attrDef": "p"
                             },
@@ -5102,7 +5102,7 @@
                                 },
                                 {
                                     "_key": "wrap",
-                                    "_value": "wrap",
+                                    "_value": "",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 },

@@ -1,5 +1,5 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-  <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="column wrap" fxLayoutGap="10px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
       <mat-icon class="successIcon">{{data[&apos;icon&apos;]}}</mat-icon>
     </div>
@@ -9,7 +9,7 @@
       </p>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-      <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="row " fxLayoutGap="5px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-button class="primaryBtn" (click)="submit()">OK</button></div>
         <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-button class="secondaryBtn" (click)="close()">Cancel</button></div>
       </div>

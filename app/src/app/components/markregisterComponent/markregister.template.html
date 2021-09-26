@@ -13,7 +13,7 @@
 
         </mat-form-field>
       </div>
-      <div fxLayout="column wrap" style="width: 80%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" style="width: 86%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
           <input matInput [(ngModel)]="emailNumber" [required]="false" inputmode="numeric" (keydown.space)="$event.preventDefault();" (input)="validateNumber($event)">
           <mat-hint align="start" *ngIf="showNumberHint">Only numbers and are + allowed</mat-hint>
@@ -22,7 +22,7 @@
         </mat-form-field>
       </div>
       <div fxLayout="column wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
-        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="findMe()">Find Me</button><button mat-button class="secondaryBtn" (click)="removeData(); ">Clear</button></div>
+        <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="findMe()">Find Me</button><button mat-button class="secondaryBtn" (click)="removeData(); ">Clear</button></div>
       </div>
     </div>
     <div fxLayout="column wrap" style="width: 35em;" class="fadeInDown headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="displayRegisterForm">
@@ -118,7 +118,7 @@
             <mat-label>Temperature: </mat-label>
             <mat-icon matSuffix>info</mat-icon>
           </mat-form-field>
-          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Submit</button><button mat-button class="secondaryBtn" (click)="onReset(formDirective)">Clear</button></div>
+          <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Submit</button><button mat-button class="secondaryBtn" (click)="onReset(formDirective)">Clear</button></div>
         </div>
       </form>
     </div>
