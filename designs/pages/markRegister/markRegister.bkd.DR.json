@@ -5062,6 +5062,12 @@
                                     "_value": "temperature",
                                     "_type": "kv",
                                     "_attrDef": "c"
+                                },
+                                {
+                                    "_key": "inputmode",
+                                    "_value": "numeric",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
                                 }
                             ]
                         },

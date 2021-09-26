@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular
 import { generic_dialogueComponent } from 'app/components/generic_dialogueComponent/generic_dialogue.component'
 import { apiService } from '../../services/api/api.service';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'bh-markregister',
@@ -27,7 +28,7 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
     services = []
     selectedService;
     showNumberHint: boolean = false;
-    constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private api: apiService) {
+    constructor(private router: Router,private dialog: MatDialog, private formBuilder: FormBuilder, private api: apiService) {
         super();
     }
 
@@ -139,8 +140,9 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
         const dialogRef = this.dialog.open(generic_dialogueComponent, {
             data: data
         });
-
+        
         return dialogRef.afterClosed().subscribe(res => {
+            this.reloadPage()
             return res
         })
     }
@@ -226,4 +228,10 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
         }
     }
 
+    reloadPage() {
+        let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
 }

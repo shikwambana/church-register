@@ -114,7 +114,7 @@
             <mat-checkbox name="{{item}}" (change)="addSymptom($event)" value="{{item}}" [required]="false" *ngFor="let item of selectSymptoms">{{item}}</mat-checkbox>
           </div>
           <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-            <input matInput [required]="true" formControlName="temperature">
+            <input matInput [required]="true" formControlName="temperature" inputmode="numeric">
             <mat-label>Temperature: </mat-label>
             <mat-icon matSuffix>info</mat-icon>
           </mat-form-field>
