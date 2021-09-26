@@ -859,7 +859,7 @@
                             },
                             {
                                 "_key": "html",
-                                "_value": "<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Service Time and Location</mat-label>\r\n\t<mat-select [(ngModel)]=\"selectedService\" [required]=\"false\" (selectionChange)=\"assignService()\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"services\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option.uid\">{{option.time}} {{option.location}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
+                                "_value": "<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Service Time and Location</mat-label>\r\n\t<mat-select [(ngModel)]=\"selectedService\" [required]=\"false\" (selectionChange)=\"assignService()\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"services\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option\">{{option.time}} {{option.location}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
                                 "_type": "a",
                                 "_attrDef": "p"
                             }
@@ -4286,8 +4286,8 @@
                                             }
                                         ]
                                     },
-                                    "b5493f43-d651-f93d-cd39-96100a7985d4": {
-                                        "paletteKey": "NG-Select",
+                                    "fe3d9d9a-4a3e-570d-4306-b5977eb2ce07": {
+                                        "paletteKey": "Html5",
                                         "parentEditorKey": "2ace38bb-8d56-09ed-6029-e6a3a169fa27",
                                         "isAdvancedComponent": true,
                                         "designerReference": [
@@ -4299,174 +4299,206 @@
                                             },
                                             {
                                                 "_key": "class",
-                                                "_value": "",
+                                                "_value": [
+                                                    "serviceDropDown"
+                                                ],
                                                 "_type": "dav",
                                                 "_attrDef": "p"
                                             },
                                             {
-                                                "_key": "placeholder",
-                                                "_value": "Which Tribe are you in? *",
-                                                "_type": "kv",
+                                                "_key": "htmlElement",
+                                                "_value": "div",
+                                                "_type": "dav",
                                                 "_attrDef": "p",
                                                 "_useAsLabel": true
                                             },
                                             {
-                                                "_key": "datasource",
-                                                "_value": "selectATribe",
+                                                "_key": "tagType",
+                                                "_value": "div",
                                                 "_type": "a",
-                                                "_attrDef": "p"
+                                                "_attrDef": "p",
+                                                "_visibility": false
                                             },
                                             {
-                                                "_key": "[groupOptions]",
-                                                "_value": "noGroup",
-                                                "_type": "dav",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[groupLabels]",
+                                                "_key": "name",
                                                 "_value": "",
                                                 "_type": "kv",
                                                 "_attrDef": "p",
                                                 "_visibility": false
                                             },
                                             {
-                                                "_key": "[disableGroup]",
+                                                "_key": "sandbox",
                                                 "_value": "",
                                                 "_type": "kv",
                                                 "_attrDef": "p",
                                                 "_visibility": false
                                             },
                                             {
-                                                "_key": "[optionDatasource]",
+                                                "_key": "src",
                                                 "_value": "",
-                                                "_type": "a",
+                                                "_type": "kv",
                                                 "_attrDef": "p",
                                                 "_visibility": false
                                             },
                                             {
-                                                "_key": "optionValue",
-                                                "_value": "option",
-                                                "_type": "a",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "optionView",
-                                                "_value": "{{option}}",
-                                                "_type": "a",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "formControlName",
-                                                "_value": "tribe",
-                                                "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[(ngModel)]",
+                                                "_key": "srcdoc",
                                                 "_value": "",
                                                 "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[(value)]",
-                                                "_value": "",
-                                                "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[required]",
-                                                "_value": "false",
-                                                "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[appearance]",
-                                                "_value": "'outline'",
-                                                "_type": "a",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[floatLabel]",
-                                                "_value": "'auto'",
-                                                "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[disableRipple]",
-                                                "_value": "",
-                                                "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "multiple",
-                                                "_value": "",
-                                                "_type": "dav",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "CustomTriggerValue",
-                                                "_value": "",
-                                                "_type": "a",
                                                 "_attrDef": "p",
                                                 "_visibility": false
                                             },
                                             {
-                                                "_key": "(openedChange)",
+                                                "_key": "width",
                                                 "_value": "",
                                                 "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "(selectionChange)",
-                                                "_value": "",
-                                                "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "selectCustomOption",
-                                                "_value": [],
-                                                "_type": "a",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "selectStyle",
-                                                "_value": "Basic",
-                                                "_type": "a",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "panelClass",
-                                                "_value": "",
-                                                "_type": "dav",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[disabled]",
-                                                "_value": "",
-                                                "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "[errorStateMatcher]",
-                                                "_value": "",
-                                                "_type": "kv",
-                                                "_attrDef": "p"
-                                            },
-                                            {
-                                                "_key": "option",
-                                                "_value": "option",
-                                                "_type": "a",
                                                 "_attrDef": "p",
                                                 "_visibility": false
                                             },
                                             {
-                                                "_key": "matError",
+                                                "_key": "[autoplay]",
+                                                "_value": "",
+                                                "_type": "kv",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "[loop]",
+                                                "_value": "",
+                                                "_type": "kv",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "data",
+                                                "_value": "",
+                                                "_type": "kv",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "audioSource",
                                                 "_value": [],
                                                 "_type": "a",
                                                 "_attrDef": "p",
-                                                "_visibility": true
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "videoSource",
+                                                "_value": [],
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "audioDatasource",
+                                                "_value": "",
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "audioSrc",
+                                                "_value": "",
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "audioType",
+                                                "_value": "",
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "videoDatasource",
+                                                "_value": "",
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "videoSrc",
+                                                "_value": "",
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "videoType",
+                                                "_value": "",
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "(audioplay)",
+                                                "_value": "",
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "(videoplay)",
+                                                "_value": "",
+                                                "_type": "a",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "(audiopause)",
+                                                "_value": "",
+                                                "_type": "kv",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "(videopause)",
+                                                "_value": "",
+                                                "_type": "kv",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "(audioended)",
+                                                "_value": "",
+                                                "_type": "kv",
+                                                "_attrDef": "p",
+                                                "_visibility": false
+                                            },
+                                            {
+                                                "_key": "(videoended)",
+                                                "_value": "",
+                                                "_type": "kv",
+                                                "_attrDef": "p",
+                                                "_visibility": false
                                             }
-                                        ]
+                                        ],
+                                        "82593aa5-3ac5-484c-3e78-f1be03659731": {
+                                            "paletteKey": "html-editor",
+                                            "parentEditorKey": "fe3d9d9a-4a3e-570d-4306-b5977eb2ce07",
+                                            "isAdvancedChildComponent": true,
+                                            "designerReference": [
+                                                {
+                                                    "_key": "style",
+                                                    "_value": "",
+                                                    "_type": "kv",
+                                                    "_attrDef": "p"
+                                                },
+                                                {
+                                                    "_key": "class",
+                                                    "_value": "",
+                                                    "_type": "dav",
+                                                    "_attrDef": "p"
+                                                },
+                                                {
+                                                    "_key": "html",
+                                                    "_value": "<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Which Tribe are you in?</mat-label>\r\n\t<mat-select formControlName=\"tribe\" [required]=\"false\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"selectATribe\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option\">{{option}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
+                                                    "_type": "a",
+                                                    "_attrDef": "p"
+                                                }
+                                            ]
+                                        }
                                     }
                                 }
                             }

@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class markregisterComponent extends NBaseComponent implements OnInit {
-    selectATribe = ["Zinhle and Thoko", "Pearson and Blessing", "Fumani and Mogau", "Arch and Busi", "Sfiso", "Michael and Lineo", "Thlalefo and Masego", "Jan and Abrie", "Marius and Lourindi", "Khutso and Lydia", "Jaco and Sylvi", "Justus and Mandy", "Lebo and Ntombi", "Bert and Charné", "Don't Know", "Other Church",]
+    selectATribe = ["Arch & Busi","Zinhle and Thoko", "Pearson and Blessing", "Fumani and Mogau", "Sfiso", "Michael and Lineo", "Thlalefo and Masego", "Jan and Abrie", "Marius and Lourindi", "Khutso and Lydia", "Jaco and Sylvi", "Justus and Mandy", "Lebo and Ntombi", "Bert and Charné", "Don't Know", "Other Church",]
     selectSymptoms = ["Fever/Chills", "Cough", "Shortness of breath", "Fatigue", "Muscle or body aches", "Headache", "Loss of taste/Smell", "Sore throat", "Nausea/Vomiting", "Diarrhea", "Congestion/Running", "None of the above"]
     selectSymptomsBackup = ["Fever/Chills", "Cough", "Shortness of breath", "Fatigue", "Muscle or body aches", "Headache", "Loss of taste/Smell", "Sore throat", "Nausea/Vomiting", "Diarrhea", "Congestion/Running", "None of the above"]
     NoSymptoms = ["None of the above"]
@@ -21,7 +21,7 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
     searchForNumber: boolean = true;
     displayRegisterForm: boolean = false;
     emailNumber: string = '';
-    enterData: boolean = false;
+    enterData: boolean = true;
     message: string = ''
     symptoms = []
     services = []
@@ -50,6 +50,8 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
             whoInvitedYou: ['', Validators.required],
             tribe: ['', Validators.required],
             serviceDetails: ['', Validators.required],
+            serviceTime: ['', Validators.required],
+            serviceLocation: ['', Validators.required],
             symptoms: [[]],
             temperature: ['', Validators.required],
             date: [new Date(), Validators.required]
@@ -106,14 +108,21 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
             let service = sessionStorage.getItem('serviceID')
             if(service){
                 this.registerForm.get('serviceDetails').setValue(service)
-                this.selectedService = service
+
+                this.selectedService = this.services.find(element =>{
+                    return element['uid'] == service
+                })
+                this.assignService()
+                
             }
         })
     }
 
     assignService() {
-        this.registerForm.get('serviceDetails').setValue(this.selectedService)
-        sessionStorage.setItem('serviceID',this.selectedService)
+        this.registerForm.get('serviceDetails').setValue(this.selectedService.uid)
+        this.registerForm.get('serviceLocation').setValue(this.selectedService.location)
+        this.registerForm.get('serviceTime').setValue(this.selectedService.time)
+        sessionStorage.setItem('serviceID',this.selectedService.uid)
     }
 
     removeData(formDirective?) {
@@ -128,7 +137,6 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
     showMessage(data) {
 
         const dialogRef = this.dialog.open(generic_dialogueComponent, {
-            width: '30em',
             data: data
         });
 

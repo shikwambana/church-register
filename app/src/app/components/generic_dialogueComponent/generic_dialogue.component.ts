@@ -19,6 +19,10 @@ export class generic_dialogueComponent extends NBaseComponent implements OnInit 
         console.log(this.data)
     }
 
+    submit(){
+        this.thisDialogRef.close(true);
+    }
+
     close() {
         this.thisDialogRef.close(false);
     }

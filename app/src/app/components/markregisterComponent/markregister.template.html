@@ -7,7 +7,7 @@
           <mat-label>Service Time and Location</mat-label>
           <mat-select [(ngModel)]="selectedService" [required]="false" (selectionChange)="assignService()">
             <ng-template ngFor let-option [ngForOf]="services" let-i="index">
-              <mat-option [value]="option.uid">{{option.time}} {{option.location}}</mat-option>
+              <mat-option [value]="option">{{option.time}} {{option.location}}</mat-option>
             </ng-template>
           </mat-select>
 
@@ -94,14 +94,17 @@
                   <mat-label>Who Invited You? (Name &amp; Surname)</mat-label>
                   <mat-icon matSuffix>person_add</mat-icon>
                 </mat-form-field>
-                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
-                  <mat-select formControlName="tribe" placeholder="Which Tribe are you in? *" [required]="false">
-                    <ng-template ngFor let-option [ngForOf]="selectATribe" let-i="index">
-                      <mat-option [value]="option">{{option}}</mat-option>
-                    </ng-template>
-                  </mat-select>
+                <div class="serviceDropDown">
+                  <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+                    <mat-label>Which Tribe are you in?</mat-label>
+                    <mat-select formControlName="tribe" [required]="false">
+                      <ng-template ngFor let-option [ngForOf]="selectATribe" let-i="index">
+                        <mat-option [value]="option">{{option}}</mat-option>
+                      </ng-template>
+                    </mat-select>
 
-                </mat-form-field>
+                  </mat-form-field>
+                </div>
               </div>
             </mat-expansion-panel>
           </mat-accordion>

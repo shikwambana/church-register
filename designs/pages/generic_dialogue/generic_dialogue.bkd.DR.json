@@ -113,7 +113,7 @@
                 },
                 {
                     "_key": "pLayoutAlign",
-                    "_value": "stretch",
+                    "_value": "center",
                     "_type": "a",
                     "_attrDef": "p"
                 },
@@ -208,13 +208,15 @@
                         },
                         {
                             "_key": "class",
-                            "_value": "",
+                            "_value": [
+                                "successIcon"
+                            ],
                             "_type": "dav",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "IconName",
-                            "_value": "home",
+                            "_value": "{{data['icon']}}",
                             "_type": "a",
                             "_attrDef": "p",
                             "_useAsLabel": true
@@ -307,7 +309,7 @@
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "",
+                            "_value": "text-align:center;",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -319,14 +321,14 @@
                         },
                         {
                             "_key": "htmlElement",
-                            "_value": "div",
+                            "_value": "p",
                             "_type": "dav",
                             "_attrDef": "p",
                             "_useAsLabel": true
                         },
                         {
                             "_key": "tagType",
-                            "_value": "",
+                            "_value": "p",
                             "_type": "a",
                             "_attrDef": "p",
                             "_visibility": false
@@ -505,7 +507,7 @@
                             },
                             {
                                 "_key": "html",
-                                "_value": "",
+                                "_value": "{{data['message']}}",
                                 "_type": "a",
                                 "_attrDef": "p"
                             }
@@ -610,7 +612,7 @@
                         },
                         {
                             "_key": "fxLayoutGap",
-                            "_value": "",
+                            "_value": "20px",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -723,13 +725,15 @@
                                 },
                                 {
                                     "_key": "class",
-                                    "_value": "",
+                                    "_value": [
+                                        "primaryBtn"
+                                    ],
                                     "_type": "dav",
                                     "_attrDef": "p"
                                 },
                                 {
                                     "_key": "buttonname",
-                                    "_value": "Button",
+                                    "_value": "OK",
                                     "_type": "a",
                                     "_attrDef": "p",
                                     "_useAsLabel": true
@@ -742,7 +746,7 @@
                                 },
                                 {
                                     "_key": "(click)",
-                                    "_value": "",
+                                    "_value": "submit()",
                                     "_type": "kv",
                                     "_attrDef": "p"
                                 },
@@ -851,13 +855,15 @@
                                 },
                                 {
                                     "_key": "class",
-                                    "_value": "",
+                                    "_value": [
+                                        "secondaryBtn"
+                                    ],
                                     "_type": "dav",
                                     "_attrDef": "p"
                                 },
                                 {
                                     "_key": "buttonname",
-                                    "_value": "Button",
+                                    "_value": "Cancel",
                                     "_type": "a",
                                     "_attrDef": "p",
                                     "_useAsLabel": true
@@ -870,7 +876,7 @@
                                 },
                                 {
                                     "_key": "(click)",
-                                    "_value": "",
+                                    "_value": "close()",
                                     "_type": "kv",
                                     "_attrDef": "p"
                                 },
