@@ -46,6 +46,27 @@ export class apiService {
        
     }
 
+    getServices(){
+
+        return this.db.collection('services').ref
+        .get().then( query =>{
+            if (!query.empty) {
+                
+                let arr = []
+                const snapshot = query.docs;
+                snapshot.forEach(element => {
+                    arr.push(element.data())
+                });;
+
+                return arr
+              } else {
+                this.openSnackBar('Something went wrong')
+                // not found
+              }
+        })
+
+    }
+
     getEveryone(page?){
 
         return this.db.collection('people').ref

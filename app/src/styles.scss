@@ -82,3 +82,13 @@ html {
   .fadeInDown {
     animation: fadeInUp .7s;
   }
+
+  .serviceDropDown {
+      .mat-form-field {
+        width: 100%;
+      }
+
+      .mat-form-field-wrapper {
+        padding-bottom: 0 !important;
+    }
+  }

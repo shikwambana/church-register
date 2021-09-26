@@ -15,6 +15,8 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-generic_dialogueComponent
+import { generic_dialogueComponent } from '../components/generic_dialogueComponent/generic_dialogue.component';
 //CORE_REFERENCE_IMPORT-attendance_dashboardComponent
 import { attendance_dashboardComponent } from '../components/attendance_dashboardComponent/attendance_dashboard.component';
 //CORE_REFERENCE_IMPORT-apiService
@@ -48,6 +50,8 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-generic_dialogueComponent
+generic_dialogueComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-attendance_dashboardComponent
 attendance_dashboardComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-markregisterComponent

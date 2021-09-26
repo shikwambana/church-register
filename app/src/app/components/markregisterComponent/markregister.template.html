@@ -1,16 +1,23 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
   <div fxLayout="column wrap" class="markContainer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img imgSrc="Web/header.png" class="headerImage"></div>
-    <div fxLayout="column wrap" style="width: 35em;" class="headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-      <h1 style="font-size: 1.5em; text-align: center">
-        15:30 COVID-19 SCREENING REGISTER</h1>
-    </div>
-    <div fxLayout="column wrap" style="padding: 25px;" class="headerText" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false" *ngIf="searchForNumber" ngClass.xs="mobileColumn">
+    <div fxLayout="column wrap" style="padding: 25px;" class="headerText" fxLayoutGap="10px" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false" *ngIf="searchForNumber" ngClass.xs="mobileColumn">
+      <div class="serviceDropDown">
+        <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-label>Service Time and Location</mat-label>
+          <mat-select [(ngModel)]="selectedService" [required]="false" (selectionChange)="assignService()">
+            <ng-template ngFor let-option [ngForOf]="services" let-i="index">
+              <mat-option [value]="option.uid">{{option.time}} {{option.location}}</mat-option>
+            </ng-template>
+          </mat-select>
+
+        </mat-form-field>
+      </div>
       <div fxLayout="column wrap" style="width: 80%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-          <input matInput [(ngModel)]="emailNumber" placeholder="Enter Email or Phone Number" [required]="false">
-          <mat-error align="start" *ngIf="!emailNumber">Please enter a valid email address or phone number</mat-error>
-          <mat-label>Enter Email or Phone Number</mat-label>
+          <input matInput [(ngModel)]="emailNumber" [required]="false" inputmode="numeric" (keydown.space)="$event.preventDefault();" (input)="validateNumber($event)">
+          <mat-hint align="start" *ngIf="showNumberHint">Only numbers and are + allowed</mat-hint>
+          <mat-label>Enter Your Phone Number</mat-label>
           <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
       </div>
@@ -19,7 +26,7 @@
       </div>
     </div>
     <div fxLayout="column wrap" style="width: 35em;" class="fadeInDown headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="displayRegisterForm">
-      <form [formGroup]="registerForm" #myForm="ngForm" style="display:contents">
+      <form [formGroup]="registerForm" #myForm="ngForm" #formDirective="ngForm" style="display:contents">
         <div fxLayout="column wrap" style="padding: 25px;" fxLayoutGap="15px" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false" id="theForm">
           <mat-accordion style="width: 100%;">
             <mat-expansion-panel [expanded]="enterData">
@@ -108,7 +115,7 @@
             <mat-label>Temperature: </mat-label>
             <mat-icon matSuffix>info</mat-icon>
           </mat-form-field>
-          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit()">Submit</button><button mat-button class="secondaryBtn" (click)="removeData(); ">Clear</button></div>
+          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Submit</button><button mat-button class="secondaryBtn" (click)="onReset(formDirective)">Clear</button></div>
         </div>
       </form>
     </div>

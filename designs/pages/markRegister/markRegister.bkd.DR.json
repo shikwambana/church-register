@@ -289,6 +289,7 @@
             "935bbff5-549b-01c7-cfe9-1ebafd7a7e76": {
                 "paletteKey": "FlexLayoutCol",
                 "parentEditorKey": "95888f3a-da71-9c19-ec5c-9c76130f6f98",
+                "isCommented": "true",
                 "designerReference": [
                     {
                         "_key": "componentLabel",
@@ -358,29 +359,32 @@
                     "paletteKey": "Html5",
                     "parentEditorKey": "935bbff5-549b-01c7-cfe9-1ebafd7a7e76",
                     "isAdvancedComponent": true,
+                    "isCommented": "true",
                     "designerReference": [
                         {
                             "_key": "style",
-                            "_value": "font-size: 1.5em; text-align: center",
+                            "_value": "",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "class",
-                            "_value": [],
+                            "_value": [
+                                "serviceDropDown"
+                            ],
                             "_type": "dav",
                             "_attrDef": "p"
                         },
                         {
                             "_key": "htmlElement",
-                            "_value": "h1",
+                            "_value": "div",
                             "_type": "dav",
                             "_attrDef": "p",
                             "_useAsLabel": true
                         },
                         {
                             "_key": "tagType",
-                            "_value": "h1",
+                            "_value": "div",
                             "_type": "a",
                             "_attrDef": "p",
                             "_visibility": false
@@ -544,6 +548,7 @@
                         "paletteKey": "html-editor",
                         "parentEditorKey": "45dba1b5-3e18-305c-c3d4-521a3b89ab18",
                         "isAdvancedChildComponent": true,
+                        "isCommented": "true",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -559,7 +564,7 @@
                             },
                             {
                                 "_key": "html",
-                                "_value": "15:30 COVID-19 SCREENING REGISTER",
+                                "_value": "<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Service Time and Location</mat-label>\r\n\t<mat-select [(ngModel)]=\"selectedService\" [required]=\"false\" (selectionChange)=\"assignService()\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"services\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option.uid\">{{option.time}} {{option.location}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
                                 "_type": "a",
                                 "_attrDef": "p"
                             }
@@ -600,7 +605,7 @@
                     },
                     {
                         "_key": "fxLayoutGap",
-                        "_value": "",
+                        "_value": "10px",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -647,6 +652,220 @@
                         "_attrDef": "c"
                     }
                 ],
+                "e4a6606e-d01f-f342-0a06-b49ffae4c42f": {
+                    "paletteKey": "Html5",
+                    "parentEditorKey": "a25377e2-8f17-07c0-3fd3-0bb01fd00c55",
+                    "isAdvancedComponent": true,
+                    "designerReference": [
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": [
+                                "serviceDropDown"
+                            ],
+                            "_type": "dav",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "htmlElement",
+                            "_value": "div",
+                            "_type": "dav",
+                            "_attrDef": "p",
+                            "_useAsLabel": true
+                        },
+                        {
+                            "_key": "tagType",
+                            "_value": "div",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "name",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "sandbox",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "src",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "srcdoc",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "width",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "[autoplay]",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "[loop]",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "data",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "audioSource",
+                            "_value": [],
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "videoSource",
+                            "_value": [],
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "audioDatasource",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "audioSrc",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "audioType",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "videoDatasource",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "videoSrc",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "videoType",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(audioplay)",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(videoplay)",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(audiopause)",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(videopause)",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(audioended)",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        },
+                        {
+                            "_key": "(videoended)",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_visibility": false
+                        }
+                    ],
+                    "035a26be-60ed-1fcd-3be3-2500a8f720f4": {
+                        "paletteKey": "html-editor",
+                        "parentEditorKey": "e4a6606e-d01f-f342-0a06-b49ffae4c42f",
+                        "isAdvancedChildComponent": true,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": "",
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "html",
+                                "_value": "<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Service Time and Location</mat-label>\r\n\t<mat-select [(ngModel)]=\"selectedService\" [required]=\"false\" (selectionChange)=\"assignService()\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"services\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option.uid\">{{option.time}} {{option.location}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
+                                "_type": "a",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    }
+                },
                 "33589c97-a46e-b4bc-d820-3ad63b6ec138": {
                     "paletteKey": "FlexLayoutCol",
                     "parentEditorKey": "a25377e2-8f17-07c0-3fd3-0bb01fd00c55",
@@ -717,6 +936,7 @@
                         "paletteKey": "NG-Input",
                         "parentEditorKey": "33589c97-a46e-b4bc-d820-3ad63b6ec138",
                         "isAdvancedComponent": true,
+                        "isCommented": "false",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -732,7 +952,7 @@
                             },
                             {
                                 "_key": "placeholder",
-                                "_value": "Enter Email or Phone Number",
+                                "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "_useAsLabel": true
@@ -818,10 +1038,17 @@
                             },
                             {
                                 "_key": "matError",
+                                "_value": [],
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_visibility": true
+                            },
+                            {
+                                "_key": "inputHint",
                                 "_value": [
                                     {
-                                        "input1": "!emailNumber",
-                                        "input2": "Please enter a valid email address or phone number",
+                                        "input1": "showNumberHint",
+                                        "input2": "Only numbers and are + allowed",
                                         "toggle": {
                                             "toggleData": [],
                                             "selected": "start"
@@ -833,15 +1060,8 @@
                                 "_visibility": true
                             },
                             {
-                                "_key": "inputHint",
-                                "_value": [],
-                                "_type": "a",
-                                "_attrDef": "p",
-                                "_visibility": true
-                            },
-                            {
                                 "_key": "Label",
-                                "_value": "Enter Email or Phone Number",
+                                "_value": "Enter Your Phone Number",
                                 "_type": "a",
                                 "_attrDef": "p",
                                 "_visibility": true
@@ -887,6 +1107,24 @@
                                 "_type": "a",
                                 "_attrDef": "p",
                                 "_visibility": true
+                            },
+                            {
+                                "_key": "inputmode",
+                                "_value": "numeric",
+                                "_type": "kv",
+                                "_attrDef": "c"
+                            },
+                            {
+                                "_key": "(keydown.space)",
+                                "_value": "$event.preventDefault();",
+                                "_type": "kv",
+                                "_attrDef": "c"
+                            },
+                            {
+                                "_key": "(input)",
+                                "_value": "validateNumber($event)",
+                                "_type": "kv",
+                                "_attrDef": "c"
                             }
                         ]
                     }
@@ -1288,6 +1526,12 @@
                         },
                         {
                             "_key": "#myForm",
+                            "_value": "ngForm",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "#formDirective",
                             "_value": "ngForm",
                             "_type": "kv",
                             "_attrDef": "c"
@@ -4888,7 +5132,7 @@
                                     },
                                     {
                                         "_key": "(click)",
-                                        "_value": "onSubmit()",
+                                        "_value": "onSubmit(formDirective)",
                                         "_type": "kv",
                                         "_attrDef": "p"
                                     },
@@ -4951,7 +5195,7 @@
                                     },
                                     {
                                         "_key": "(click)",
-                                        "_value": "removeData(); ",
+                                        "_value": "onReset(formDirective)",
                                         "_type": "kv",
                                         "_attrDef": "p"
                                     },

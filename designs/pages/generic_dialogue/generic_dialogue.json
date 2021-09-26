@@ -1,0 +1,14 @@
+{
+    "appPageId": "ad4b0745-65e0-e18b-4dd6-c9a2320ce801",
+    "appPageName": "generic_dialogue",
+    "componentName": "generic_dialogueComponent",
+    "selectorName": "bh-generic_dialogue",
+    "htmlFileName": "generic_dialogue.template.html",
+    "tsFileName": "generic_dialogue.component.ts",
+    "createDate": "2021-09-25T19:58:00.186Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}
