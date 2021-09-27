@@ -1,0 +1,14 @@
+{
+    "appPageId": "890926c2-29fe-c054-ff4c-4323003bb999",
+    "appPageName": "base_layout",
+    "componentName": "base_layoutComponent",
+    "selectorName": "bh-base_layout",
+    "htmlFileName": "base_layout.template.html",
+    "tsFileName": "base_layout.component.ts",
+    "createDate": "2021-09-26T17:58:01.809Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

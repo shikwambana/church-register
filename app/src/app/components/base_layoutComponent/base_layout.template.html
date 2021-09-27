@@ -1,0 +1,18 @@
+<div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+  <div fxLayout="column " fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="row wrap" class="header width100" fxFlex="100" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <h2>
+          The Volt</h2>
+      </div>
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu"><button mat-menu-item> Home </button></mat-menu>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

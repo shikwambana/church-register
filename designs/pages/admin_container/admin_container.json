@@ -1,0 +1,14 @@
+{
+    "appPageId": "035c245c-c742-834b-8e33-3e494d0763dd",
+    "appPageName": "admin_container",
+    "componentName": "admin_containerComponent",
+    "selectorName": "bh-admin_container",
+    "htmlFileName": "admin_container.template.html",
+    "tsFileName": "admin_container.component.ts",
+    "createDate": "2021-09-26T17:51:38.691Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

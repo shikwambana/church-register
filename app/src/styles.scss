@@ -11,7 +11,7 @@ $white: white;
 
 html {
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    background: #ede7f6;
+    // background: #ede7f6;
 }
 .headerImage {
     width: 100%;     
@@ -99,3 +99,35 @@ html {
     height: 40px !important;     
     width: 40px !important;
   }
+
+  .width100 {
+    width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+      margin: 0;
+  }
+
+  .header {
+    padding: 10px;
+    box-shadow: 1px 1px 5px 3px #80808085;
+  }
+
+  .mat-tab-label {
+    font-size: 20px !important;
+    height: 70px !important; 
+    padding: 0 10px !important;
+  }
+
+  .mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: none !important;
+}
+
+.mat-ink-bar {
+    background-color: white !important;
+}
+
+.mat-tab-label-active .mat-tab-label-content {
+    color: $darkColour;
+    font-weight: 600;
+}

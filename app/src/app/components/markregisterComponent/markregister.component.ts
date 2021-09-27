@@ -44,7 +44,7 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             contactNumber: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
+            email: ['', [Validators.email]],
             gender: ['', Validators.required],
             address: ['', Validators.required],
             firstTimeVisitor: [true, Validators.required],
@@ -55,7 +55,8 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
             serviceLocation: ['', Validators.required],
             symptoms: [[]],
             temperature: ['', Validators.required],
-            date: [new Date(), Validators.required]
+            date: [new Date(), Validators.required],
+            captureDate: ['']
         })
     }
 
@@ -140,7 +141,7 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
         const dialogRef = this.dialog.open(generic_dialogueComponent, {
             data: data
         });
-        
+
         return dialogRef.afterClosed().subscribe(res => {
             this.reloadPage()
             return res
@@ -151,7 +152,8 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
 
     onSubmit(formDirective: FormGroupDirective) {
         this.submitted = true;
-
+        let today = new Date().toDateString();
+        this.registerForm.get('captureDate').setValue(today)
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             this.api.openSnackBar('Please complete all fields');

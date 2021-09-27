@@ -1,12 +1,24 @@
 {
     "routes": [
         {
-            "component": "markregisterComponent",
-            "path": "home"
+            "component": "base_layoutComponent",
+            "path": "home",
+            "children": [
+                {
+                    "path": "''",
+                    "component": "markregisterComponent"
+                }
+            ]
         },
         {
             "path": "admin",
-            "component": "attendance_dashboardComponent"
+            "component": "base_layoutComponent",
+            "children": [
+                {
+                    "path": "''",
+                    "component": "admin_containerComponent"
+                }
+            ]
         },
         {
             "path": "''",

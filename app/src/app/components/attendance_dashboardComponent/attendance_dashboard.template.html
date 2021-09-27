@@ -1,6 +1,41 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
   <div fxLayout="column wrap" class="markContainer" fxLayoutGap="25px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+        <div class="serviceDropDown">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [(ngModel)]="dateOfService" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="serviceDropDown">
+          <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+            <mat-label>Choose Service Location</mat-label>
+            <mat-select [(ngModel)]="location" [required]="false">
+              <ng-template ngFor let-option [ngForOf]="services" let-i="index">
+                <mat-option [value]="option.location">{{option.location}}</mat-option>
+              </ng-template>
+            </mat-select>
+
+          </mat-form-field>
+        </div>
+        <div class="serviceDropDown">
+          <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+            <mat-label>Choose Service Time</mat-label>
+            <mat-select [(ngModel)]="timeOfService" [required]="false">
+              <ng-template ngFor let-option [ngForOf]="services" let-i="index">
+                <mat-option [value]="option.time">{{option.time}}</mat-option>
+              </ng-template>
+            </mat-select>
+
+          </mat-form-field>
+        </div>
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="getServiceDetails()">Get Service Details</button></div>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
       <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
           <mat-card>

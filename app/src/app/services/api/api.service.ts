@@ -26,6 +26,28 @@ export class apiService {
         })
     }
 
+    getServiceAttendance(body){
+
+        return this.db.collection('people').ref
+        .where('serviceTime', '==', body['serviceTime'])
+        .where('serviceLocation','==',body['serviceLocation'])
+        .where('captureDate','==', body['captureDate'])
+        .get().then( query =>{
+            if (!query.empty) {
+                let arr = []
+                const snapshot = query.docs;
+                snapshot.forEach(element => {
+                    arr.push(element.data())
+                });;
+
+                return arr
+            } else{
+                this.openSnackBar('No data found')
+            }
+        })
+
+    }
+
     searchUser(type,document){
         
         return this.db.collection('people').ref.where(type,'==',document)
@@ -51,7 +73,7 @@ export class apiService {
         return this.db.collection('services').ref
         .get().then( query =>{
             if (!query.empty) {
-                
+
                 let arr = []
                 const snapshot = query.docs;
                 snapshot.forEach(element => {

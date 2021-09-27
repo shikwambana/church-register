@@ -19,13 +19,61 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
         male: 0,
         female: 0
     }
-
+    services: any[];
+    selectedService: any;
+    listOfDates;
+    dateOfService : Date = new Date();
+    serviceDate;
+    timeOfService;
+    location;
     constructor(private api: apiService) {
         super();
     }
 
     ngOnInit() {
-        this.fetchAllPeople()
+        // this.fetchAllPeople()
+        this.fetchAllServices()
+    }
+
+
+    getServiceDetails(){
+
+        if(this.dateOfService){
+            this.serviceDate = this.dateOfService.toDateString()
+        }
+
+        if(this.location || this.timeOfService || this.serviceDate){
+            let body = {
+                captureDate: this.serviceDate,
+                serviceTime: this.timeOfService,
+                serviceLocation: this.location
+            }
+            this.api.getServiceAttendance(body).then(res =>{
+                console.log(res)
+            })
+        }else{
+
+        }
+    }
+
+
+    fetchAllServices(){
+        this.api.getServices().then(res => {
+            this.services = res
+            let service = sessionStorage.getItem('serviceID')
+            if(service){
+
+                this.selectedService = this.services.find(element =>{
+                    return element['uid'] == service
+                })
+                this.assignService()
+                
+            }
+        })
+    }
+
+    assignService() {
+        sessionStorage.setItem('serviceID',this.selectedService.uid)
     }
 
     fetchAllPeople() {

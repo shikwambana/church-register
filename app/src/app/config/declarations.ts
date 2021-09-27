@@ -15,6 +15,10 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-base_layoutComponent
+import { base_layoutComponent } from '../components/base_layoutComponent/base_layout.component';
+//CORE_REFERENCE_IMPORT-admin_containerComponent
+import { admin_containerComponent } from '../components/admin_containerComponent/admin_container.component';
 //CORE_REFERENCE_IMPORT-generic_dialogueComponent
 import { generic_dialogueComponent } from '../components/generic_dialogueComponent/generic_dialogue.component';
 //CORE_REFERENCE_IMPORT-attendance_dashboardComponent
@@ -50,6 +54,10 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-base_layoutComponent
+base_layoutComponent,
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-admin_containerComponent
+admin_containerComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-generic_dialogueComponent
 generic_dialogueComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-attendance_dashboardComponent
@@ -84,5 +92,7 @@ apiService,
 */
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
-export const appRoutes = [{path: 'home', component: markregisterComponent},{path: 'admin', component: attendance_dashboardComponent},{path: '', redirectTo: '/home', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+export const appRoutes = [{path: 'home', component: base_layoutComponent,
+children: [{path: '', component: markregisterComponent}]},{path: 'admin', component: base_layoutComponent,
+children: [{path: '', component: admin_containerComponent}]},{path: '', redirectTo: '/home', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END
