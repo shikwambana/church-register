@@ -20,6 +20,7 @@
                         "assets": [
                             "src/assets",
                             "src/favicon.ico",
+                            "src/theVolt.jpg",
                             "src/manifest.json",
                             "src/service-worker.js",
                             "src/firebase-messaging-sw.js",
@@ -91,6 +92,7 @@
                         "assets": [
                             "src/assets",
                             "src/favicon.ico",
+                            "src/theVolt.jpg",
                             "src/manifest.json",
                             "src/service-worker.js",
                             "src/firebase-messaging-sw.js",
