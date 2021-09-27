@@ -691,7 +691,7 @@
                                 },
                                 {
                                     "_key": "html",
-                                    "_value": "<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Choose Service Location</mat-label>\r\n\t<mat-select [(ngModel)]=\"location\" [required]=\"false\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"services\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option.location\">{{option.location}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
+                                    "_value": "<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Choose Campus</mat-label>\r\n\t<mat-select [(ngModel)]=\"location\" [required]=\"false\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"services\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option.location\">{{option.location}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 }
@@ -3363,87 +3363,6 @@
                         "_attrDef": "c"
                     }
                 ],
-                "7979c0eb-d929-e3db-a7e0-af180e193c14": {
-                    "paletteKey": "NG-image",
-                    "parentEditorKey": "9a674021-212a-dbcc-ecd9-73c83e60ea2c",
-                    "designerReference": [
-                        {
-                            "_key": "componentLabel",
-                            "_value": "Image",
-                            "_type": "kv",
-                            "_attrDef": "p",
-                            "_useAsLabel": true
-                        },
-                        {
-                            "_key": "style",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "class",
-                            "_value": [
-                                "negativeSpaceImages"
-                            ],
-                            "_type": "dav",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "imgSrc",
-                            "_value": "Web/analyse.svg",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "alt",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[src]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "imgSecure",
-                            "_value": "",
-                            "_type": "a",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[collectionName]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "[imageFilter]",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "width",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "srcset",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        },
-                        {
-                            "_key": "sizes",
-                            "_value": "",
-                            "_type": "kv",
-                            "_attrDef": "p"
-                        }
-                    ]
-                },
                 "85792eb0-69cf-24c6-36a9-90c5b65ae9f8": {
                     "paletteKey": "Html5",
                     "parentEditorKey": "9a674021-212a-dbcc-ecd9-73c83e60ea2c",
@@ -3657,6 +3576,87 @@
                             }
                         ]
                     }
+                },
+                "7979c0eb-d929-e3db-a7e0-af180e193c14": {
+                    "paletteKey": "NG-image",
+                    "parentEditorKey": "9a674021-212a-dbcc-ecd9-73c83e60ea2c",
+                    "designerReference": [
+                        {
+                            "_key": "componentLabel",
+                            "_value": "Image",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_useAsLabel": true
+                        },
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": [
+                                "negativeSpaceImages"
+                            ],
+                            "_type": "dav",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "imgSrc",
+                            "_value": "Web/analyse.svg",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "alt",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[src]",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "imgSecure",
+                            "_value": "",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[collectionName]",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[imageFilter]",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "width",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "srcset",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "sizes",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        }
+                    ]
                 }
             },
             "455e9b20-3839-8ec4-6d24-805e55b3a1dd": {

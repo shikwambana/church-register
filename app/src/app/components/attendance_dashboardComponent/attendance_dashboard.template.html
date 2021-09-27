@@ -12,7 +12,7 @@
         </div>
         <div class="serviceDropDown">
           <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
-            <mat-label>Choose Service Location</mat-label>
+            <mat-label>Choose Campus</mat-label>
             <mat-select [(ngModel)]="location" [required]="false">
               <ng-template ngFor let-option [ngForOf]="services" let-i="index">
                 <mat-option [value]="option.location">{{option.location}}</mat-option>
@@ -128,9 +128,9 @@
 
       </div>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" *ngIf="!dataSource"><img imgSrc="Web/analyse.svg" class="negativeSpaceImages">
+    <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" *ngIf="!dataSource">
       <div class="centerText">
-        Select a Campus and Service Time to view attendance </div>
+        Select a Campus and Service Time to view attendance </div><img imgSrc="Web/analyse.svg" class="negativeSpaceImages">
     </div>
   </div>
 </div>

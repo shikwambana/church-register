@@ -60,6 +60,17 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
                     pastors: '',
                     time: this.timeOfService,
                 }
+
+                this.dataSource.forEach(element => {
+                    let answer = ''
+                    if(element['firstTimeVisitor']){
+                        answer = 'Yes'
+                    }else{
+                        answer = 'No'
+                    }
+
+                    element['firstTime'] = answer
+                });
                 console.log(res)
             })
         }else{
