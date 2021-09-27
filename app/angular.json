@@ -18,6 +18,8 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "src/tsconfig.app.json",
                         "assets": [
+                            "assets",
+                            "favicon.png",
                             "src/assets",
                             "src/favicon.ico",
                             "src/theVolt.jpg",
@@ -90,6 +92,8 @@
                         ],
                         "scripts": [],
                         "assets": [
+                            "assets",
+                            "favicon.png",
                             "src/assets",
                             "src/favicon.ico",
                             "src/theVolt.jpg",
