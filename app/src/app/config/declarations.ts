@@ -15,6 +15,8 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-createfilesService
+import { createfilesService } from '../services/createfiles/createfiles.service';
 //CORE_REFERENCE_IMPORT-base_layoutComponent
 import { base_layoutComponent } from '../components/base_layoutComponent/base_layout.component';
 //CORE_REFERENCE_IMPORT-admin_containerComponent
@@ -82,6 +84,8 @@ export const appProviders = [
   },
   NAuthGuardService,
   //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-createfilesService
+createfilesService,
 //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-apiService
 apiService,
 

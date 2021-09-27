@@ -2,6 +2,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core'
 import { NBaseComponent } from '../../../../../app/baseClasses/nBase.component';
 import { apiService } from '../../services/api/api.service';
+import { createfilesService } from '../../services/createfiles/createfiles.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
@@ -20,18 +21,22 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
         female: 0
     }
     services: any[];
+    activeService = {
+        location: '',
+        time: '',
+        pastors: ''
+    }
     selectedService: any;
     listOfDates;
     dateOfService : Date = new Date();
     serviceDate;
     timeOfService;
     location;
-    constructor(private api: apiService) {
+    constructor(private api: apiService, private createfilesService : createfilesService) {
         super();
     }
 
     ngOnInit() {
-        // this.fetchAllPeople()
         this.fetchAllServices()
     }
 
@@ -42,18 +47,30 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
             this.serviceDate = this.dateOfService.toDateString()
         }
 
-        if(this.location || this.timeOfService || this.serviceDate){
+        if(this.location && this.timeOfService && this.serviceDate){
             let body = {
                 captureDate: this.serviceDate,
                 serviceTime: this.timeOfService,
                 serviceLocation: this.location
             }
             this.api.getServiceAttendance(body).then(res =>{
+                this.dataSource = res;
+                this.activeService = {
+                    location: this.location,
+                    pastors: '',
+                    time: this.timeOfService,
+                }
                 console.log(res)
             })
         }else{
 
         }
+    }
+
+    exportExcel(){
+        
+        this.createfilesService.
+        exportAsExcelFile(this.dataSource,`${this.activeService['location']} ${this.activeService['time']}`)
     }
 
 

@@ -1,7 +1,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
   <div fxLayout="column wrap" class="markContainer" fxLayoutGap="25px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-      <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
         <div class="serviceDropDown">
           <mat-form-field appearance="outline">
             <mat-label>Choose a date</mat-label>
@@ -32,10 +32,10 @@
 
           </mat-form-field>
         </div>
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="getServiceDetails()">Get Service Details</button></div>
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-button style="height:50px" class="primaryBtn" (click)="getServiceDetails()">Get Service Details</button></div>
       </div>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource">
       <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
           <mat-card>
@@ -43,8 +43,9 @@
 
             <mat-card-content>
               <h3>
-                Tuks 1 15:30
-                Hatfield</h3>
+                {{activeService[&apos;location&apos;]}} {{activeService[&apos;time&apos;]}}
+                {{activeService[&apos;pastors&apos;]}}
+              </h3>
             </mat-card-content>
 
             <mat-card-actions></mat-card-actions>
@@ -90,7 +91,8 @@
         </div>
       </div>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource">
+      <div fxLayout="column wrap" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false"><button mat-button class="primaryBtn" (click)="exportExcel()">Export to Excel</button></div>
       <div fxLayout="column">
         <table mat-table [dataSource]="dataSource" matSort class="table-width-fix">
           <tr mat-header-row *matHeaderRowDef="[&apos;firstName&apos;,&apos;lastName&apos;,&apos;firstTime&apos;,&apos;whoInvitedYou&apos;,&apos;contactNumber&apos;]"></tr>
@@ -126,15 +128,9 @@
 
       </div>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-      <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-        <div>
-          <div class="form-group">
-            <label for="file">Choose File</label>
-            <input type="file" id="file" (change)="handleFileInput($event.target.files)">
-          </div>
-        </div>
-      </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" *ngIf="!dataSource"><img imgSrc="Web/analyse.svg" class="negativeSpaceImages">
+      <div class="centerText">
+        Select a Campus and Service Time to view attendance </div>
     </div>
   </div>
 </div>
