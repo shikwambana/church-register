@@ -1,14 +1,8 @@
 {
     "routes": [
         {
-            "component": "base_layoutComponent",
-            "path": "home",
-            "children": [
-                {
-                    "path": "''",
-                    "component": "markregisterComponent"
-                }
-            ]
+            "component": "markregisterComponent",
+            "path": "home"
         },
         {
             "path": "admin",

@@ -859,7 +859,7 @@
                             },
                             {
                                 "_key": "html",
-                                "_value": "<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Service Time and Location</mat-label>\r\n\t<mat-select [(ngModel)]=\"selectedService\" [required]=\"false\" (selectionChange)=\"assignService()\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"services\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option\">{{option.time}} {{option.location}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
+                                "_value": "<h4 style=\"padding-bottom:10px\" *ngIf=\"!selectedService\">Please select a Service</h4>\r\n<mat-form-field [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\">\r\n\t<mat-label>Service Time and Location</mat-label>\r\n\t<mat-select [(ngModel)]=\"selectedService\" [required]=\"false\" (selectionChange)=\"assignService()\">\r\n\t\t<ng-template ngFor let-option [ngForOf]=\"services\" let-i=\"index\">\r\n\t\t\t<mat-option [value]=\"option\">{{option.time}} {{option.location}}</mat-option>\r\n\t\t</ng-template>\r\n\t</mat-select>\r\n\r\n</mat-form-field>",
                                 "_type": "a",
                                 "_attrDef": "p"
                             }
@@ -930,13 +930,18 @@
                             "_value": "false",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "selectedService",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ],
                     "d8411c29-4f0a-e5c1-3540-9006d2b84203": {
                         "paletteKey": "NG-Input",
                         "parentEditorKey": "33589c97-a46e-b4bc-d820-3ad63b6ec138",
                         "isAdvancedComponent": true,
-                        "isCommented": "false",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -1125,6 +1130,12 @@
                                 "_value": "validateNumber($event)",
                                 "_type": "kv",
                                 "_attrDef": "c"
+                            },
+                            {
+                                "_key": "(keydown.enter)",
+                                "_value": "findMe()",
+                                "_type": "kv",
+                                "_attrDef": "c"
                             }
                         ]
                     }
@@ -1193,6 +1204,12 @@
                             "_value": "false",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "selectedService",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ],
                     "92e32732-be72-2ae8-db02-0ef801619e53": {
@@ -2585,6 +2602,12 @@
                                             {
                                                 "_key": "formControlName",
                                                 "_value": "email",
+                                                "_type": "kv",
+                                                "_attrDef": "c"
+                                            },
+                                            {
+                                                "_key": "(keydown.space)",
+                                                "_value": "$event.preventDefault();",
                                                 "_type": "kv",
                                                 "_attrDef": "c"
                                             }
@@ -5060,12 +5083,6 @@
                                 {
                                     "_key": "formControlName",
                                     "_value": "temperature",
-                                    "_type": "kv",
-                                    "_attrDef": "c"
-                                },
-                                {
-                                    "_key": "inputmode",
-                                    "_value": "numeric",
                                     "_type": "kv",
                                     "_attrDef": "c"
                                 }

@@ -96,7 +96,6 @@ apiService,
 */
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
-export const appRoutes = [{path: 'home', component: base_layoutComponent,
-children: [{path: '', component: markregisterComponent}]},{path: 'admin', component: base_layoutComponent,
+export const appRoutes = [{path: 'home', component: markregisterComponent},{path: 'admin', component: base_layoutComponent,
 children: [{path: '', component: admin_containerComponent}]},{path: '', redirectTo: '/home', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

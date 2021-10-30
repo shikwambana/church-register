@@ -3,6 +3,7 @@
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img imgSrc="Web/header.png" class="headerImage"></div>
     <div fxLayout="column wrap" style="padding: 25px;" class="headerText" fxLayoutGap="10px" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false" *ngIf="searchForNumber" ngClass.xs="mobileColumn">
       <div class="serviceDropDown">
+        <h4 style="padding-bottom:10px" *ngIf="!selectedService">Please select a Service</h4>
         <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
           <mat-label>Service Time and Location</mat-label>
           <mat-select [(ngModel)]="selectedService" [required]="false" (selectionChange)="assignService()">
@@ -13,15 +14,15 @@
 
         </mat-form-field>
       </div>
-      <div fxLayout="column wrap" style="width: 86%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" style="width: 86%;" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="selectedService">
         <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-          <input matInput [(ngModel)]="emailNumber" [required]="false" inputmode="numeric" (keydown.space)="$event.preventDefault();" (input)="validateNumber($event)">
+          <input matInput [(ngModel)]="emailNumber" [required]="false" inputmode="numeric" (keydown.space)="$event.preventDefault();" (input)="validateNumber($event)" (keydown.enter)="findMe()">
           <mat-hint align="start" *ngIf="showNumberHint">Only numbers and are + allowed</mat-hint>
           <mat-label>Enter Your Phone Number</mat-label>
           <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
       </div>
-      <div fxLayout="column wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" *ngIf="selectedService">
         <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="findMe()">Find Me</button><button mat-button class="secondaryBtn" (click)="removeData(); ">Clear</button></div>
       </div>
     </div>
@@ -56,7 +57,7 @@
                   <mat-icon matSuffix>local_phone</mat-icon>
                 </mat-form-field>
                 <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                  <input matInput [required]="true" formControlName="email">
+                  <input matInput [required]="true" formControlName="email" (keydown.space)="$event.preventDefault();">
                   <mat-label>Email</mat-label>
                   <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
@@ -114,7 +115,7 @@
             <mat-checkbox name="{{item}}" (change)="addSymptom($event)" value="{{item}}" [required]="false" *ngFor="let item of selectSymptoms">{{item}}</mat-checkbox>
           </div>
           <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-            <input matInput [required]="true" formControlName="temperature" inputmode="numeric">
+            <input matInput [required]="true" formControlName="temperature">
             <mat-label>Temperature: </mat-label>
             <mat-icon matSuffix>info</mat-icon>
           </mat-form-field>
