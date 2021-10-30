@@ -50,8 +50,30 @@ export class apiService {
 
     searchUser(type, document) {
         this.openSnackBar('Looking for your details')
-
+        let today = new Date().toDateString();
         return this.db.collection('people').ref.where(type, '==', document)
+        .where('captureDate', '==', today)
+             .get().then(query => {
+                if (!query.empty) {
+                    const snapshot = query.docs[0];
+                    const data = snapshot.data();
+                    data['registered'] = 'already Registered'
+                    this.openSnackBar('We found your details')
+                    return data
+                } else {
+                    return this.getUserDetails(type,document)
+                    this.openSnackBar('Please enter your details')
+                    // not found
+                }
+            })
+            .catch(error => {
+                console.log("Error getting documents: ", error);
+            })
+
+    }
+
+    getUserDetails(type,document){
+         return this.db.collection('people').ref.where(type, '==', document)
             .get().then(query => {
                 if (!query.empty) {
                     const snapshot = query.docs[0];
@@ -66,7 +88,6 @@ export class apiService {
             .catch(error => {
                 console.log("Error getting documents: ", error);
             })
-
     }
 
     getServices() {

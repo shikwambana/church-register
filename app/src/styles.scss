@@ -3,13 +3,14 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "nDefaults.scss";
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 $primaryColour: #009595;
 $darkColour: #005656;
 $white: white;
 
 html {
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: 'Varela Round', sans-serif;
   // background: #ede7f6;
 }
 .headerImage {
@@ -146,5 +147,5 @@ p {
 
 .negativeSpaceImages {
   max-height: 300px;
-  padding: 50px 0;
+  padding: 20px 0;
 }

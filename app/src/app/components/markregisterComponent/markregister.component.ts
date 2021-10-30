@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 
 export class markregisterComponent extends NBaseComponent implements OnInit {
-    selectATribe = ["Arch & Busi","Zinhle and Thoko", "Pearson and Blessing", "Fumani and Mogau", "Sfiso", "Michael and Lineo", "Thlalefo and Masego", "Jan and Abrie", "Marius and Lourindi", "Khutso and Lydia", "Jaco and Sylvi", "Justus and Mandy", "Lebo and Ntombi", "Bert and Charné", "Don't Know", "Other Church",]
+    selectATribe = ["Arch & Busi", "Zinhle and Thoko", "Pearson and Blessing", "Fumani and Mogau", "Sfiso", "Michael and Lineo", "Thlalefo and Masego", "Jan and Abrie", "Marius and Lourindi", "Khutso and Lydia", "Jaco and Sylvi", "Justus and Mandy", "Lebo and Ntombi", "Bert and Charné", "Don't Know", "Other Church",]
     selectSymptoms = ["Fever/Chills", "Cough", "Shortness of breath", "Fatigue", "Muscle or body aches", "Headache", "Loss of taste/Smell", "Sore throat", "Nausea/Vomiting", "Diarrhea", "Congestion/Running", "None of the above"]
     selectSymptomsBackup = ["Fever/Chills", "Cough", "Shortness of breath", "Fatigue", "Muscle or body aches", "Headache", "Loss of taste/Smell", "Sore throat", "Nausea/Vomiting", "Diarrhea", "Congestion/Running", "None of the above"]
     NoSymptoms = ["None of the above"]
@@ -22,21 +22,22 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
     searchForNumber: boolean = true;
     displayRegisterForm: boolean = false;
     emailNumber: string = '';
-    enterData: boolean = true;
     message: string = ''
     symptoms = []
     services = []
     selectedService;
     showNumberHint: boolean = false;
-    constructor(private router: Router,private dialog: MatDialog, private formBuilder: FormBuilder, private api: apiService) {
+    alreadyRegistered: boolean = false;
+    newUser: boolean = true;
+    data: unknown;
+    enterData = true
+    constructor(private router: Router, private dialog: MatDialog, private formBuilder: FormBuilder, private api: apiService) {
         super();
     }
 
     ngOnInit() {
         this.getServices()
         this.buildForm()
-        
-        
     }
 
     buildForm() {
@@ -74,8 +75,10 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
 
         this.api.searchUser(queryType, this.emailNumber).then(res => {
 
-            this.displayRegisterForm = true
             if (!res) {
+                this.buildForm()
+                this.displayRegisterForm = true
+                this.alreadyRegistered = false
                 if (queryType == 'email') {
                     this.registerForm.patchValue({
                         email: this.emailNumber
@@ -85,20 +88,36 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
                         contactNumber: this.emailNumber
                     })
                 }
-                this.enterData = true;
+                this.newUser = true;
+
             } else {
-                this.registerForm.patchValue({
-                    firstName: res['firstName'],
-                    lastName: res['lastName'],
-                    contactNumber: res["contactNumber"],
-                    email: res["email"],
-                    gender: res['gender'],
-                    address: res["address"],
-                    firstTimeVisitor: false,
-                    whoInvitedYou: res["whoInvitedYou"],
-                    tribe: res["tribe"],
-                    date: new Date()
-                })
+
+                this.data = res
+                if (res['registered']) {
+                    this.data['date'] = this.data['date'].toDate().toLocaleTimeString('en-US')
+                    this.alreadyRegistered = true
+                    this.displayRegisterForm = false
+                    this.emailNumber = ''
+
+                } else {
+
+                    this.newUser = false;
+                    this.displayRegisterForm = true
+                    this.alreadyRegistered = false
+                    this.registerForm.patchValue({
+                        firstName: res['firstName'],
+                        lastName: res['lastName'],
+                        contactNumber: res["contactNumber"],
+                        email: res["email"],
+                        gender: res['gender'],
+                        address: res["address"],
+                        firstTimeVisitor: false,
+                        whoInvitedYou: res["whoInvitedYou"],
+                        tribe: res["tribe"],
+                        date: new Date()
+                    })
+                }
+
             }
         })
     }
@@ -108,14 +127,14 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
         this.api.getServices().then(res => {
             this.services = res
             let service = sessionStorage.getItem('serviceID')
-            if(service){
+            if (service) {
                 this.registerForm.get('serviceDetails').setValue(service)
 
-                this.selectedService = this.services.find(element =>{
+                this.selectedService = this.services.find(element => {
                     return element['uid'] == service
                 })
                 this.assignService()
-                
+
             }
         })
     }
@@ -124,10 +143,11 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
         this.registerForm.get('serviceDetails').setValue(this.selectedService.uid)
         this.registerForm.get('serviceLocation').setValue(this.selectedService.location)
         this.registerForm.get('serviceTime').setValue(this.selectedService.time)
-        sessionStorage.setItem('serviceID',this.selectedService.uid)
+        sessionStorage.setItem('serviceID', this.selectedService.uid)
     }
 
     removeData(formDirective?) {
+        this.data = null;
         this.emailNumber = ''
         this.registerForm.reset()
         if (formDirective) {
@@ -196,6 +216,11 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
     validateNumber(event) {
         const pattern = /^[0-9]*$/;
 
+        if (this.emailNumber.length == 1) {
+            this.alreadyRegistered = false
+            this.data = null;
+            this.displayRegisterForm = false
+        }
         if (!pattern.test(event.target.value)) {
             event.target.value = event.target.value.replace(/[^0-9+]/g, "");
             this.showNumberHint = true

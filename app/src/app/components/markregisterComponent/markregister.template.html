@@ -23,8 +23,28 @@
         </mat-form-field>
       </div>
       <div fxLayout="column wrap" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" *ngIf="selectedService">
-        <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="findMe()">Find Me</button><button mat-button class="secondaryBtn" (click)="removeData(); ">Clear</button></div>
+        <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="findMe()" [disabled]="!emailNumber">Find Me</button><button mat-button class="secondaryBtn" (click)="removeData(); " [disabled]="!emailNumber">Clear</button></div>
       </div>
+    </div>
+    <div fxLayout="column wrap" fxLayoutGap="10px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" *ngIf="alreadyRegistered">
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <mat-icon class="successIcon">check_circle</mat-icon>
+      </div>
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <p style="text-align:center;">
+          <b>Already Registered</b> <br><br>
+          {{data[&apos;firstName&apos;]}} {{data[&apos;lastName&apos;]}} <br>
+          {{data[&apos;contactNumber&apos;]}} <br>
+          Tribe : {{data[&apos;tribe&apos;]}} <br>
+          Registered at {{data[&apos;date&apos;]}}
+        </p>
+      </div>
+      <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false"><button mat-button class="primaryBtn" (click)="reloadPage()">OK</button></div>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" *ngIf="!data &amp;&amp; !displayRegisterForm ">
+      <div class="centerText">
+        Enter your Phone Number to get started<br>
+        Make sure you select the right campus</div><img imgSrc="Web/find_people.svg" class="negativeSpaceImages">
     </div>
     <div fxLayout="column wrap" style="width: 35em;" class="fadeInDown headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="displayRegisterForm">
       <form [formGroup]="registerForm" #myForm="ngForm" #formDirective="ngForm" style="display:contents">
@@ -83,10 +103,10 @@
                     <p>
                       Are You a 1st Time Visitor?</p>
                     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-                      <mat-radio-button [value]="true" [required]="false">Yes</mat-radio-button>
+                      <mat-radio-button [value]="true" [required]="false" [disabled]="!newUser">Yes</mat-radio-button>
                     </div>
                     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-                      <mat-radio-button [value]="false" [required]="true" [labelPosition]="&apos;after&apos;">No</mat-radio-button>
+                      <mat-radio-button [value]="false" [required]="true" [disabled]="!newUser" [labelPosition]="&apos;after&apos;">No</mat-radio-button>
                     </div>
                   </div>
                 </mat-radio-group>
@@ -119,7 +139,7 @@
             <mat-label>Temperature: </mat-label>
             <mat-icon matSuffix>info</mat-icon>
           </mat-form-field>
-          <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Submit</button><button mat-button class="secondaryBtn" (click)="onReset(formDirective)">Clear</button></div>
+          <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Submit</button><button mat-button class="secondaryBtn" (click)="reloadPage()">Cancel</button></div>
         </div>
       </form>
     </div>
