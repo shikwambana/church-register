@@ -35,55 +35,77 @@
         <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-button style="height:50px" class="primaryBtn" (click)="getServiceDetails()">Get Service Details</button></div>
       </div>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource">
-      <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-          <mat-card>
-            <mat-card-title>Service Details</mat-card-title>
-
-            <mat-card-content>
-              <h3>
-                {{activeService[&apos;location&apos;]}} {{activeService[&apos;time&apos;]}}
-                {{activeService[&apos;pastors&apos;]}}
-              </h3>
-            </mat-card-content>
-
-            <mat-card-actions></mat-card-actions>
-          </mat-card>
+    <div fxLayout="column wrap" class="customButtonGroup custom" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource">
+      <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <div>
+          <h2 style="padding: 12px 15px 0 0; color: #009595;">{{activeService[&apos;location&apos;]}} {{activeService[&apos;time&apos;]}}</h2>
         </div>
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-          <mat-card>
-            <mat-card-title>Attendance</mat-card-title>
-
-            <mat-card-content>
-              <h3 *ngIf="dataSource">
-                {{dataSource.length}} people
-              </h3>
-            </mat-card-content>
-
-            <mat-card-actions></mat-card-actions>
-          </mat-card>
+        <div>
+          <mat-button-toggle-group value="Service Stats" aria-label="Font Style">
+            <mat-button-toggle *ngFor="let item of options" [value]="item.name" (click)="changeView(item.name)">
+              <mat-icon class style="margin-right: 7px; margin-left: -2px ;">
+                {{item.icon}}
+              </mat-icon>{{item.name}}
+            </mat-button-toggle>
+          </mat-button-toggle-group>
         </div>
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-          <mat-card>
-            <mat-card-title>First Time</mat-card-title>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource &amp;&amp; view == &apos;Service Stats&apos;">
+      <div fxLayout="row wrap" class="admin-cards" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" fxFlex="25" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <mat-card>
+              <mat-card-title align="center">Attendance: {{dataSource.length}} People</mat-card-title>
 
-            <mat-card-content>
-              <h3>
-                {{newPeople}} new people
-              </h3>
-            </mat-card-content>
+              <mat-card-content>
+                <div *ngIf="dataSource" fxLayoutAlign="column" fxLayout="column">
 
-            <mat-card-actions></mat-card-actions>
-          </mat-card>
+                  <div fxFlex="100">
+                    <canvas baseChart id="pie-chart" [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="chartOptions" [legend]="false" chartType="pie"></canvas>
+                  </div>
+                  <div style="padding-top:10px">
+                    <p style="text-align:center"> <span style="color: deeppink;">{{demographic[&apos;female&apos;]}} Females</span> | <span style="color: lightskyblue;">{{demographic[&apos;male&apos;]}} Males</span></p>
+
+                  </div>
+                </div>
+              </mat-card-content>
+
+              <mat-card-actions></mat-card-actions>
+            </mat-card>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <mat-card>
+              <mat-card-title align="center">Visitors: {{newPeople}} Visitors</mat-card-title>
+
+              <mat-card-content>
+                <div fxLayout="column">
+
+                  <div fxFlex="100">
+                    <canvas baseChart id="pie-chart" [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="chartOptions" [legend]="false" chartType="pie"></canvas>
+                  </div>
+                  <div style="padding-top:10px">
+                    <p style="text-align:center"> <span style="color: deeppink;">{{demographic[&apos;newFemale&apos;]}} Females</span> | <span style="color: lightskyblue;">{{demographic[&apos;newMale&apos;]}} Males</span></p>
+
+                  </div>
+                </div>
+              </mat-card-content>
+
+              <mat-card-actions></mat-card-actions>
+            </mat-card>
+          </div>
         </div>
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" fxFlex="70" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
           <mat-card>
-            <mat-card-title>Demographic</mat-card-title>
+            <mat-card-title>Tribe Attendance</mat-card-title>
 
             <mat-card-content>
-              <h3>
-                Girls: {{demographic[&apos;female&apos;]}} | Boys: {{demographic[&apos;male&apos;]}}</h3>
+              <div *ngIf="pastorsAttendance">
+
+                <div fxFlex="100">
+                  <canvas baseChart [data]="pastorsAttendance" [labels]="pastors" [legend]="false" chartType="bar"></canvas>
+                </div>
+              </div>
             </mat-card-content>
 
             <mat-card-actions></mat-card-actions>
@@ -91,7 +113,7 @@
         </div>
       </div>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource  &amp;&amp; view == &apos;Attendance Register&apos;">
       <div fxLayout="column wrap" fxLayoutAlign="start end" [fxShow]="true" [fxHide]="false"><button mat-button class="primaryBtn" (click)="exportExcel()">Export to Excel</button></div>
       <div fxLayout="column">
         <table mat-table [dataSource]="dataSource" matSort class="table-width-fix">

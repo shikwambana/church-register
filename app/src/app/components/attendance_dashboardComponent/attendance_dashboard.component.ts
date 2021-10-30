@@ -5,6 +5,8 @@ import { apiService } from '../../services/api/api.service';
 import { createfilesService } from '../../services/createfiles/createfiles.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MultiDataSet, Label } from 'ng2-charts';
+import { ChartType, ChartOptions } from 'chart.js';
 
 @Component({
     selector: 'bh-attendance_dashboard',
@@ -15,6 +17,18 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
     dataSource;
+    pastors = ["Arch & Busi", "Zinhle and Thoko", "Pearson and Blessing", "Fumani and Mogau", "Sfiso", "Michael and Lineo", "Thlalefo and Masego", "Jan and Abrie", "Marius and Lourindi", "Khutso and Lydia", "Jaco and Sylvi", "Justus and Mandy", "Lebo and Ntombi", "Bert and Charné", "Don't Know", "Other Church",]
+    pastorsAttendance = []
+    options = [
+        {
+            name: 'Service Stats',
+            icon: 'assessment'
+        },
+        {
+            name: 'Attendance Register',
+            icon: 'people'
+        }]
+    view = 'Service Stats'
     newPeople: number = 0;
     demographic = {
         male: 0,
@@ -28,11 +42,44 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
     }
     selectedService: any;
     listOfDates;
-    dateOfService : Date = new Date();
+    dateOfService: Date = new Date();
     serviceDate;
     timeOfService;
     location;
-    constructor(private api: apiService, private createfilesService : createfilesService) {
+
+    doughnutChartLabels: Label[] = ['Female', 'Male'];
+    doughnutChartData: MultiDataSet = [
+        []
+    ];
+    doughnutChartType: ChartType = 'doughnut';
+    chartOptions: ChartOptions = {
+        tooltips: {
+            enabled: true
+        },
+        plugins: {
+            datalabels: {
+                // formatter: (value, ctx) => {
+
+                //     let sum = 0;
+                //     let dataArr = ctx.chart.data.datasets[0].data;
+                //     dataArr.map(data => {
+                //         sum += data;
+                //     });
+                //     let percentage = (value * 100 / sum).toFixed(2) + "%";
+                //     return percentage;
+
+
+                // },
+                anchor: 'center',
+                backgroundColor: null,
+                borderWidth: 0,
+                color: '#FFCE56',
+            }
+        }
+    };
+
+
+    constructor(private api: apiService, private createfilesService: createfilesService) {
         super();
     }
 
@@ -40,20 +87,38 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
         this.fetchAllServices()
     }
 
+    resetVariables() {
+        this.dataSource = [];
+        this.newPeople = 0;
+        this.pastorsAttendance = [];
+        this.demographic = {
+            male: 0,
+            female: 0
+        };
+        this.activeService = {
+            location: '',
+            time: '',
+            pastors: ''
+        };
+    }
 
-    getServiceDetails(){
 
-        if(this.dateOfService){
+    getServiceDetails() {
+
+        if (this.dateOfService) {
             this.serviceDate = this.dateOfService.toDateString()
         }
 
-        if(this.location && this.timeOfService && this.serviceDate){
+        if (this.location && this.timeOfService && this.serviceDate) {
             let body = {
                 captureDate: this.serviceDate,
                 serviceTime: this.timeOfService,
                 serviceLocation: this.location
             }
-            this.api.getServiceAttendance(body).then(res =>{
+            this.api.getServiceAttendance(body).then(res => {
+
+                this.resetVariables()
+
                 this.dataSource = res;
                 this.activeService = {
                     location: this.location,
@@ -63,45 +128,102 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
 
                 this.dataSource.forEach(element => {
                     let answer = ''
-                    if(element['firstTimeVisitor']){
+                    if (element['firstTimeVisitor']) {
                         answer = 'Yes'
-                    }else{
+                    } else {
                         answer = 'No'
                     }
 
                     element['firstTime'] = answer
                 });
-                console.log(res)
+                this.categoriseData()
+
             })
-        }else{
+        } else {
 
         }
     }
 
-    exportExcel(){
-        
+    categoriseData() {
+
+        let newPeople = this.dataSource.filter(elem => {
+            return elem['firstTime'] == 'Yes'
+        })
+
+        this.newPeople = newPeople.length
+
+        let demographic = newPeople.filter(elem => {
+            return elem['gender'] == 'Female'
+        })
+
+        this.demographic['newFemale'] = demographic.length
+
+        demographic = newPeople.filter(elem => {
+            return elem['gender'] == 'Male'
+        })
+
+        this.demographic['newMale'] = demographic.length
+
+        newPeople = this.dataSource.filter(elem => {
+            return elem['gender'] == 'Female'
+        })
+
+        this.demographic['female'] = newPeople.length
+
+        newPeople = this.dataSource.filter(elem => {
+            return elem['gender'] == 'Male'
+        })
+
+        this.demographic['male'] = newPeople.length
+
+        this.doughnutChartData = [
+            [this.demographic['female'], this.demographic['male']]
+        ]
+
+        this.pastors.forEach(elem => {
+
+            let register = this.dataSource.filter(person => {
+                return person['tribe'] == elem
+            })
+
+            this.pastorsAttendance.push(register.length)
+        })
+
+
+    }
+
+    changeView(name) {
+        this.view = name
+    }
+
+    returnView() {
+        return this.view
+    }
+
+    exportExcel() {
+
         this.createfilesService.
-        exportAsExcelFile(this.dataSource,`${this.activeService['location']} ${this.activeService['time']}`)
+            exportAsExcelFile(this.dataSource, `${this.activeService['location']} ${this.activeService['time']}`)
     }
 
 
-    fetchAllServices(){
+    fetchAllServices() {
         this.api.getServices().then(res => {
             this.services = res
             let service = sessionStorage.getItem('serviceID')
-            if(service){
+            if (service) {
 
-                this.selectedService = this.services.find(element =>{
+                this.selectedService = this.services.find(element => {
                     return element['uid'] == service
                 })
                 this.assignService()
-                
+
             }
         })
     }
 
     assignService() {
-        sessionStorage.setItem('serviceID',this.selectedService.uid)
+        sessionStorage.setItem('serviceID', this.selectedService.uid)
     }
 
     fetchAllPeople() {
@@ -110,26 +232,6 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
             console.log(res)
             this.dataSource = res
             this.dataSource.paginator = this.paginator;
-
-            let newPeople = this.dataSource.filter(elem => {
-                return elem['firstTime'] == 'Yes'
-            })
-
-            this.newPeople = newPeople.length
-
-            newPeople = this.dataSource.filter(elem => {
-                return elem['gender'] == 'Female'
-            })
-
-            this.demographic['female'] = newPeople.length
-
-            newPeople = this.dataSource.filter(elem => {
-                return elem['gender'] == 'Male'
-            })
-
-            this.demographic['male'] = newPeople.length
-
-
         })
 
         let todaysDate = new Date();

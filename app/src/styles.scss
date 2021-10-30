@@ -3,14 +3,14 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "nDefaults.scss";
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 $primaryColour: #009595;
 $darkColour: #005656;
 $white: white;
 
 html {
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
   // background: #ede7f6;
 }
 .headerImage {
@@ -149,3 +149,51 @@ p {
   max-height: 300px;
   padding: 20px 0;
 }
+
+.mat-standard-chip.mat-chip-with-trailing-icon {
+  padding-right: 14px !important;
+}
+
+.selectedChip {
+  background-color: #009595;
+  color: white;
+
+  .mat-icon {
+    color: white;
+  }
+}
+
+.customButtonGroup {
+  .mat-button-toggle {
+    padding-right: 3px !important;
+  }
+
+  .mat-button-toggle-group {
+    border: none;
+  }
+  .mat-button-toggle-button {
+    margin: 0 5px !important;
+    border-radius: 40px !important;
+  }
+
+  .mat-button-toggle-checked {
+    background-color: #009595;
+    color: white !important;
+    margin: 0 5px !important;
+    border-radius: 40px !important;
+    padding-right: 10px !important;
+
+    .mat-icon {
+      color: white;
+    }
+  }
+}
+
+.admin-cards {
+  .mat-card {
+    box-shadow: 4px 4px 10px 0px #d5d5d5, -6px -4px 10px 0px #ffffff !important;
+  }
+}
+// canvas {
+//   max-width: 240px;
+// }
