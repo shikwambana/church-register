@@ -86,6 +86,10 @@ html {
   animation: fadeInUp 0.7s;
 }
 
+.serviceDropDownMobile {
+  
+  
+}
 .serviceDropDown {
   .mat-form-field {
     width: 100%;
@@ -194,6 +198,26 @@ p {
     box-shadow: 4px 4px 10px 0px #d5d5d5, -6px -4px 10px 0px #ffffff !important;
   }
 }
-// canvas {
-//   max-width: 240px;
-// }
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInUp {
+  animation: slideInUp 0.5s;
+}
+
+.fullWidth {
+  width: 100% !important;
+}
+
+.maxWidth300 {
+  max-width: 300px !important;
+}

@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MultiDataSet, Label } from 'ng2-charts';
 import { ChartType, ChartOptions } from 'chart.js';
+import { Sort } from '@angular/material/sort';
 
 @Component({
     selector: 'bh-attendance_dashboard',
@@ -28,13 +29,14 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
             name: 'Attendance Register',
             icon: 'people'
         }]
+    campuses = []
     view = 'Service Stats'
     newPeople: number = 0;
     demographic = {
         male: 0,
         female: 0
     }
-    services: any[];
+    services = [];
     activeService = {
         location: '',
         time: '',
@@ -46,7 +48,13 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
     serviceDate;
     timeOfService;
     location;
-
+    attendanceCount = 0
+    barChartColours = [{
+        backgroundColor: "#009595",
+        hoverBackgroundColor: "#FF0",
+        borderColor: "#0F0",
+        hoverBorderColor: "#00F"
+    }]
     doughnutChartLabels: Label[] = ['Female', 'Male'];
     doughnutChartData: MultiDataSet = [
         []
@@ -87,6 +95,44 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
         this.fetchAllServices()
     }
 
+    applyFilter(event: Event) {
+        const filterValue = (event.target as HTMLInputElement).value;
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
+    sortData(sort: Sort) {
+
+        const data = this.dataSource.data.slice();
+        if (!sort.active || sort.direction === '') {
+            sort = { active: 'firstName', direction: 'asc' }
+        }
+
+        this.dataSource = data.sort((a, b) => {
+            const isAsc = sort.direction === 'asc';
+
+            switch (sort.active) {
+                case 'firstName': return this.compare(a.firstName, b.firstName, isAsc);
+                case 'lastName': return this.compare(a.lastName, b.lastName, isAsc);
+                case 'firstTime': return this.compare(a.firstTime, b.firstTime, isAsc);
+                case 'whoInvitedYou': return this.compare(a.whoInvitedYou, b.whoInvitedYou, isAsc);
+                case 'contactNumber': return this.compare(a.contactNumber, b.contactNumber, isAsc);
+                case 'gender': return this.compare(a.gender, b.gender, isAsc);
+                case 'tribe': return this.compare(a.tribe, b.tribe, isAsc);
+                default: return 0;
+            }
+        })
+
+    }
+
+    compare(a: number | string | Date, b: number | string | Date, isAsc: boolean, isDate: boolean = false) {
+        if (isDate) {
+            a = isNaN(Number(a)) ? new Date() : a;
+            b = isNaN(Number(b)) ? new Date() : b;
+        }
+
+        return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+    }
+
     resetVariables() {
         this.dataSource = [];
         this.newPeople = 0;
@@ -102,6 +148,13 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
         };
     }
 
+    storeSelection() {
+        this.selectedService = this.services.find(element => {
+            return element['time'] == this.timeOfService
+        })
+
+        this.assignService()
+    }
 
     getServiceDetails() {
 
@@ -110,6 +163,7 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
         }
 
         if (this.location && this.timeOfService && this.serviceDate) {
+
             let body = {
                 captureDate: this.serviceDate,
                 serviceTime: this.timeOfService,
@@ -120,6 +174,9 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
                 this.resetVariables()
 
                 this.dataSource = res;
+                if (!res) {
+                    return
+                }
                 this.activeService = {
                     location: this.location,
                     pastors: '',
@@ -136,7 +193,10 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
 
                     element['firstTime'] = answer
                 });
+                this.attendanceCount = this.dataSource.length
                 this.categoriseData()
+                this.sortData({ active: 'firstName', direction: 'asc' })
+                this.dataSource = new MatTableDataSource(this.dataSource);
 
             })
         } else {
@@ -216,8 +276,15 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
                 this.selectedService = this.services.find(element => {
                     return element['uid'] == service
                 })
-                this.assignService()
 
+                this.services.forEach(elem => {
+                    if (!this.campuses.includes(elem['location'])) {
+                        this.campuses.push(elem['location'])
+                    }
+                })
+
+                this.location = this.selectedService['location']
+                this.timeOfService = this.selectedService['time']
             }
         })
     }
