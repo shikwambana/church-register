@@ -26,6 +26,9 @@
         <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="findMe()" [disabled]="!emailNumber">Find Me</button><button mat-button class="secondaryBtn" (click)="removeData(); " [disabled]="!emailNumber">Clear</button></div>
       </div>
     </div>
+    <div *ngIf="api.loader" class="fullWidth">
+      <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
+    </div>
     <div fxLayout="column wrap" fxLayoutGap="10px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" *ngIf="alreadyRegistered">
       <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <mat-icon class="successIcon">check_circle</mat-icon>
@@ -139,6 +142,13 @@
             <mat-label>Temperature: </mat-label>
             <mat-icon matSuffix>info</mat-icon>
           </mat-form-field>
+          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <p>
+              If you are encountering problems registering, use the alternative links below:<br>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVoCaF53rPqoHQ2Eh_1jwVFWD8Qx6ND75DSIQz-jzSEO_vQg/viewform" target="_blank">15:30 Service </a><br>
+              <a href="https://forms.gle/9DWAd77THGuCTYvK6" target="_blank">17:00 Service </a><br>
+            </p>
+          </div>
           <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Submit</button><button mat-button class="secondaryBtn" (click)="reloadPage()">Cancel</button></div>
         </div>
       </form>

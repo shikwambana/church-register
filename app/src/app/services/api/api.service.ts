@@ -8,6 +8,7 @@ import { query } from '@angular/animations';
 @Injectable()
 export class apiService {
 
+    loader: boolean = false;
     constructor(public snackbar: MatSnackBar, private http: HttpClient, private db: AngularFirestore) {
         const things = db.collection('things').valueChanges();
         things.subscribe(console.log);
@@ -15,24 +16,29 @@ export class apiService {
 
     addPerson(document) {
         let uuid = this.create_UUID();
-
+        this.loader = true;
         return this.db.collection('people').doc(uuid).set(document)
             .then(res => {
+                this.loader = false;
                 console.log(res)
                 return true
             }, err => {
+                this.loader = false;
                 console.log(err)
                 return false
             })
     }
 
     getServiceAttendance(body) {
+        this.loader = true;
 
         return this.db.collection('people').ref
             .where('serviceTime', '==', body['serviceTime'])
             .where('serviceLocation', '==', body['serviceLocation'])
             .where('captureDate', '==', body['captureDate'])
             .get().then(query => {
+                this.loader = false;
+
                 if (!query.empty) {
                     let arr = []
                     const snapshot = query.docs;
@@ -49,11 +55,17 @@ export class apiService {
     }
 
     searchUser(type, document) {
+
+        this.loader = true;
         this.openSnackBar('Looking for your details')
         let today = new Date().toDateString();
         return this.db.collection('people').ref.where(type, '==', document)
-        .where('captureDate', '==', today)
-             .get().then(query => {
+            .where('captureDate', '==', today)
+            .where('serviceLocation', '==', document['serviceLocation'])
+            .where('serviceTime', '==', document['serviceTime'])
+            .get().then(query => {
+                this.loader = false;
+
                 if (!query.empty) {
                     const snapshot = query.docs[0];
                     const data = snapshot.data();
@@ -61,7 +73,7 @@ export class apiService {
                     this.openSnackBar('We found your details')
                     return data
                 } else {
-                    return this.getUserDetails(type,document)
+                    return this.getUserDetails(type, document)
                     this.openSnackBar('Please enter your details')
                     // not found
                 }
@@ -72,9 +84,13 @@ export class apiService {
 
     }
 
-    getUserDetails(type,document){
-         return this.db.collection('people').ref.where(type, '==', document)
+    getUserDetails(type, document) {
+        this.loader = true;
+
+        return this.db.collection('people').ref.where(type, '==', document)
             .get().then(query => {
+                this.loader = false;
+
                 if (!query.empty) {
                     const snapshot = query.docs[0];
                     const data = snapshot.data();
@@ -91,9 +107,12 @@ export class apiService {
     }
 
     getServices() {
+        this.loader = true;
 
         return this.db.collection('services').ref
             .get().then(query => {
+                this.loader = false;
+
                 if (!query.empty) {
 
                     let arr = []

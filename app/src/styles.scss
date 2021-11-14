@@ -221,3 +221,16 @@ p {
 .maxWidth300 {
   max-width: 300px !important;
 }
+
+a {
+  color: #009595;
+  text-decoration: none;
+}
+.custom-progress .mat-progress-bar-fill::after {
+  background-color: $primaryColour !important;
+}
+
+.mat-progress-bar {
+  background-color: $primaryColour;
+  color: $primaryColour;
+}

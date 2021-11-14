@@ -195,7 +195,7 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
                 });
                 this.attendanceCount = this.dataSource.length
                 this.categoriseData()
-                this.sortData({ active: 'firstName', direction: 'asc' })
+                // this.sortData({ active: 'firstName', direction: 'asc' })
                 this.dataSource = new MatTableDataSource(this.dataSource);
 
             })
@@ -270,17 +270,18 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
     fetchAllServices() {
         this.api.getServices().then(res => {
             this.services = res
+
+            this.services.forEach(elem => {
+                if (!this.campuses.includes(elem['location'])) {
+                    this.campuses.push(elem['location'])
+                }
+            })
+
             let service = sessionStorage.getItem('serviceID')
             if (service) {
 
                 this.selectedService = this.services.find(element => {
                     return element['uid'] == service
-                })
-
-                this.services.forEach(elem => {
-                    if (!this.campuses.includes(elem['location'])) {
-                        this.campuses.push(elem['location'])
-                    }
                 })
 
                 this.location = this.selectedService['location']

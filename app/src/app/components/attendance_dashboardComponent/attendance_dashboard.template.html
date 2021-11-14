@@ -1,4 +1,4 @@
-<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
   <div fxLayout="column wrap" class="markContainer" fxLayoutGap="25px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" ngClass.xs="fullWidth" fxFill>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" ngClass.xs="fullWidth">
       <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" fxLayout.xs="column" fxFlex.xs="100" ngClass.xs="serviceDropDownMobile" fxLayoutAlign.xs="start start">
@@ -39,6 +39,9 @@
         </div>
       </div>
     </div>
+    <div *ngIf="api.loader" class="fullWidth">
+      <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
+    </div>
     <div fxLayout="column wrap" class="customButtonGroup custom" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource" ngClass.xs="fullWidth">
       <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <div>
@@ -56,7 +59,7 @@
       </div>
     </div>
     <div fxLayout="column wrap" class="slideInUp" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" *ngIf="dataSource &amp;&amp; view == &apos;Service Stats&apos;" ngClass.xs="fullWidth">
-      <div fxLayout="row wrap" class="admin-cards" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="row wrap" class="admin-cards" fxFlex="100" fxLayoutGap="10px" fxLayoutAlign="space-between space-between" [fxShow]="true" [fxHide]="false">
         <div fxLayout="column wrap" fxFlex="25" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFlex.xs="100">
           <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
             <mat-card>

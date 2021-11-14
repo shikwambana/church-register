@@ -45,7 +45,7 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             contactNumber: ['', Validators.required],
-            email: ['', [Validators.email]],
+            email: ['', [Validators.required]],
             gender: ['', Validators.required],
             address: ['', Validators.required],
             firstTimeVisitor: [true, Validators.required],
@@ -171,14 +171,21 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
     get f() { return this.registerForm.value; }
 
     onSubmit(formDirective: FormGroupDirective) {
+        console.log('befoe assigning service',this.selectedService)
+        console.log(this.registerForm.value)
+        this.registerForm.get('serviceDetails').setValue(this.selectedService.uid)
+        this.registerForm.get('serviceLocation').setValue(this.selectedService.location)
+        this.registerForm.get('serviceTime').setValue(this.selectedService.time)
+        console.log('after assigning service',this.selectedService)
+
         this.submitted = true;
         let today = new Date().toDateString();
         this.registerForm.get('captureDate').setValue(today)
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            this.api.openSnackBar('Please complete all fields');
-            return;
-        }
+        // if (this.registerForm.invalid) {
+        //     this.api.openSnackBar('Please complete all fields');
+        //     return;
+        // }
 
         this.api.addPerson(this.f).then(res => {
 
