@@ -1,7 +1,7 @@
 {
     "routes": [
         {
-            "component": "markregisterComponent",
+            "component": "get_ticketComponent",
             "path": "home"
         },
         {
@@ -13,6 +13,10 @@
                     "component": "admin_containerComponent"
                 }
             ]
+        },
+        {
+            "path": "ticket/:id",
+            "component": "print_ticketComponent"
         },
         {
             "path": "''",

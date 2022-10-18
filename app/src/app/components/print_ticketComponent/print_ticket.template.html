@@ -1,0 +1,47 @@
+<div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
+  <div fxLayout="column wrap" class="markContainer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img imgSrc="Web/header.png" class="headerImage"></div>
+    <div fxLayout="column wrap" style="width: 35em;" class="fadeInDown headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column " fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div>
+              <img src="assets/Web/drtumi.png" width="100%">
+            </div>
+          </div>
+          <div fxLayout="row wrap" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <p>
+                Name: <b>{{details.firstName}} {{details.lastName}}</b></p>
+            </div>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <p>
+                Phone Number: <b>{{details.contactNumber}}<b></b></b></p>
+            </div>
+          </div>
+          <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div>
+                Email: <b>{{details.email}}<b></b></b></div>
+            </div>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div>
+                Gender: <b>{{details.gender}}<b></b></b></div>
+            </div>
+          </div>
+          <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="column wrap" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div>
+                Invited By: <b>{{details.whoInvitedYou}}<b></b></b></div>
+            </div>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div>
+                Flat/Res: <b>{{details.address}}<b></b></b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row " style="padding:25px 0" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Download My Ticket</button><button mat-button class="secondaryBtn" (click)="reloadPage()">Cancel</button></div>
+    </div>
+  </div>
+</div>

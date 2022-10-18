@@ -1,0 +1,14 @@
+{
+    "appPageId": "c9677845-0be4-6199-8569-7d55017607a9",
+    "appPageName": "get_ticket",
+    "componentName": "get_ticketComponent",
+    "selectorName": "bh-get_ticket",
+    "htmlFileName": "get_ticket.template.html",
+    "tsFileName": "get_ticket.component.ts",
+    "createDate": "2022-10-18T12:09:52.101Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}

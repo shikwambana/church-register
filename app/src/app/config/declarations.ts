@@ -15,6 +15,10 @@ window['neutrinos'] = {
 }
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-print_ticketComponent
+import { print_ticketComponent } from '../components/print_ticketComponent/print_ticket.component';
+//CORE_REFERENCE_IMPORT-get_ticketComponent
+import { get_ticketComponent } from '../components/get_ticketComponent/get_ticket.component';
 //CORE_REFERENCE_IMPORT-createfilesService
 import { createfilesService } from '../services/createfiles/createfiles.service';
 //CORE_REFERENCE_IMPORT-base_layoutComponent
@@ -56,6 +60,10 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-print_ticketComponent
+print_ticketComponent,
+//CORE_REFERENCE_PUSH_TO_DEC_ARRAY-get_ticketComponent
+get_ticketComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-base_layoutComponent
 base_layoutComponent,
 //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-admin_containerComponent
@@ -96,6 +104,6 @@ apiService,
 */
 
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
-export const appRoutes = [{path: 'home', component: markregisterComponent},{path: 'admin', component: base_layoutComponent,
-children: [{path: '', component: admin_containerComponent}]},{path: '', redirectTo: '/home', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
+export const appRoutes = [{path: 'home', component: get_ticketComponent},{path: 'admin', component: base_layoutComponent,
+children: [{path: '', component: admin_containerComponent}]},{path: 'ticket/:id', component: print_ticketComponent},{path: '', redirectTo: '/home', pathMatch: 'full'},{path: '**', component: PageNotFoundComponent}]
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END

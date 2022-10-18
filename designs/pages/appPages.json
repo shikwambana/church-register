@@ -23,5 +23,15 @@
         "appPageName": "base_layout",
         "componentName": "base_layoutComponent",
         "createDate": "2021-09-26T17:58:01.809Z"
+    },
+    "c9677845-0be4-6199-8569-7d55017607a9": {
+        "appPageName": "get_ticket",
+        "componentName": "get_ticketComponent",
+        "createDate": "2022-10-18T12:09:52.101Z"
+    },
+    "a98b9e87-aaf5-224b-d513-59c5ada34534": {
+        "appPageName": "print_ticket",
+        "componentName": "print_ticketComponent",
+        "createDate": "2022-10-18T18:47:30.515Z"
     }
 }

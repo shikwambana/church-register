@@ -1,0 +1,14 @@
+{
+    "appPageId": "a98b9e87-aaf5-224b-d513-59c5ada34534",
+    "appPageName": "print_ticket",
+    "componentName": "print_ticketComponent",
+    "selectorName": "bh-print_ticket",
+    "htmlFileName": "print_ticket.template.html",
+    "tsFileName": "print_ticket.component.ts",
+    "createDate": "2022-10-18T18:47:30.515Z",
+    "bkd": {
+        "designerHtml": "",
+        "designerReference": {},
+        "ts": ""
+    }
+}
