@@ -49,69 +49,7 @@ export class get_ticketComponent extends NBaseComponent implements OnInit {
             date: [new Date(), Validators.required],
             captureDate: ['']
         })
-        console.log(this.registerForm.value)
 
-    }
-
-
-    findMe() {
-        let queryType = ''
-        const phoneRegex = /[0-9]$/
-        const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-        if (emailRegex.test(this.emailNumber)) {
-            queryType = 'email'
-        } else {
-            queryType = 'contactNumber'
-        }
-
-        this.api.searchUser(queryType, this.emailNumber).then(res => {
-
-            if (!res) {
-                this.buildForm()
-                this.displayRegisterForm = true
-                this.alreadyRegistered = false
-                if (queryType == 'email') {
-                    this.registerForm.patchValue({
-                        email: this.emailNumber
-                    })
-                } else {
-                    this.registerForm.patchValue({
-                        contactNumber: this.emailNumber
-                    })
-                }
-                this.newUser = true;
-
-            } else {
-
-                this.data = res
-                if (res['registered']) {
-                    this.data['date'] = this.data['date'].toDate().toLocaleTimeString('en-US')
-                    this.alreadyRegistered = true
-                    this.displayRegisterForm = false
-                    this.emailNumber = ''
-
-                } else {
-
-                    this.newUser = false;
-                    this.displayRegisterForm = true
-                    this.alreadyRegistered = false
-                    this.registerForm.patchValue({
-                        firstName: res['firstName'],
-                        lastName: res['lastName'],
-                        contactNumber: res["contactNumber"],
-                        email: res["email"],
-                        gender: res['gender'],
-                        address: res["address"],
-                        firstTimeVisitor: false,
-                        whoInvitedYou: res["whoInvitedYou"],
-                        tribe: res["tribe"],
-                        date: new Date()
-                    })
-                }
-
-            }
-        })
     }
 
     removeData(formDirective?) {
@@ -154,13 +92,16 @@ export class get_ticketComponent extends NBaseComponent implements OnInit {
         this.api.addPerson(this.f).then(res => {
             sessionStorage.setItem('info',JSON.stringify(this.f))
             let data = {
-                message: 'Your details have being saved. You can proceed',
+                message: 'Your details have being saved. Click Ok To Download Your Ticket',
                 icon: 'check_circle',
                 id: this.registerForm.get('id').value,
                 returnData: true
             }
             this.displayRegisterForm = false
-            this.showMessage(data)
+            // this.showMessage(data)
+            this.api.openSnackBar('Seat Reserved');
+            this.router.navigate(['ticket/'+data.id])
+
             this.onReset(formDirective);
 
         }, err => {

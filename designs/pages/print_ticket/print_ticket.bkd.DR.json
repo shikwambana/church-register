@@ -542,7 +542,7 @@
                     },
                     {
                         "_key": "fxLayoutGap",
-                        "_value": "",
+                        "_value": "10px",
                         "_type": "kv",
                         "_attrDef": "p"
                     },
@@ -666,14 +666,14 @@
                             },
                             {
                                 "_key": "htmlElement",
-                                "_value": "h1",
+                                "_value": "h2",
                                 "_type": "dav",
                                 "_attrDef": "p",
                                 "_useAsLabel": true
                             },
                             {
                                 "_key": "tagType",
-                                "_value": "h1",
+                                "_value": "h2",
                                 "_type": "a",
                                 "_attrDef": "p",
                                 "_visibility": false
