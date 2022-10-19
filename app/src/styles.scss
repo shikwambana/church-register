@@ -118,7 +118,7 @@ h4,
 h5,
 h6,
 p {
-  margin: 0;
+  margin: 5px 0;
 }
 
 .header {
@@ -147,6 +147,10 @@ p {
 }
 .centerText {
   text-align: center;
+}
+
+.padding10px {
+  padding: 10px;
 }
 
 .negativeSpaceImages {
@@ -230,6 +234,9 @@ a {
   background-color: $primaryColour !important;
 }
 
+.primaryColor {
+  color: $primaryColour;
+}
 .mat-progress-bar {
   background-color: $primaryColour;
   color: $primaryColour;

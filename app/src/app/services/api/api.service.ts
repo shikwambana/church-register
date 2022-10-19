@@ -29,6 +29,21 @@ export class apiService {
             })
     }
 
+    logShare(document) {
+        let uuid = this.create_UUID();
+        this.loader = true;
+        return this.db.collection('drtumi_shares').doc(uuid).set(document)
+            .then(res => {
+                this.loader = false;
+                console.log(res)
+                return true
+            }, err => {
+                this.loader = false;
+                console.log(err)
+                return false
+            })
+    }
+
     getServiceAttendance(body) {
         this.loader = true;
 
