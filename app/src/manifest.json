@@ -1,7 +1,7 @@
 {
-    "name": "church-register",
+    "name": "The-Volt",
     "short_name": "The Volt",
-    "theme_color": "#1976d2",
+    "theme_color": "#009595",
     "background_color": "#fafafa",
     "display": "standalone",
     "scope": "./",

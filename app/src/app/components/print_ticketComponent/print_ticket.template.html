@@ -6,9 +6,6 @@
         <h2 class="primaryColor width100 centerText">
           Ticket #{{details.id}} Reserved</h2>
       </div>
-      <div *ngIf="downloading" class="fullWidth">
-        <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
-      </div>
       <div fxLayout="row wrap" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <p>
           Hi {{details.firstName}}, download your ticket by <span (click)="printTicket()" class="primaryColor">Clicking Here</span>
@@ -19,6 +16,9 @@
           <br><br>
           See you on Sunday, 23 October at 17:00
         </p>
+      </div>
+      <div *ngIf="downloading" class="fullWidth">
+        <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
       </div>
       <div fxLayout="row " style="padding:15px 0;border-bottom: 1px dotted black;" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
         <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="printTicket()">Download My Ticket</button></div>
