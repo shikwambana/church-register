@@ -99,5 +99,113 @@
                 "CallSSDApi"
             ]
         }
+    },
+    "neutrinos-pwa-firebase": {
+        "name": "neutrinos-pwa-firebase",
+        "version": "1.0.0",
+        "deps": {
+            "neutrinos-pwa-firebase": {
+                "name": "neutrinos-pwa-firebase",
+                "version": "1.0.0",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "client": [
+                        {
+                            "name": "e2d945fe-eb02-f09d-4d71-81ce05f2e103",
+                            "displayName": "FCM Subscribe",
+                            "dependencies": [
+                                {
+                                    "name": "@angular/pwa",
+                                    "version": "0.1100.6"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "e60b2f2f-ed8e-32a1-e724-ae3bd76c96f4",
+                            "displayName": "On FCM Subscribe",
+                            "dependencies": [
+                                {
+                                    "name": "@angular/pwa",
+                                    "version": "0.1100.6"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "d4ec9910-c1f1-11e0-13cc-4f839ff96a72",
+                            "displayName": "FCM Unsubscribe",
+                            "dependencies": [
+                                {
+                                    "name": "@angular/pwa",
+                                    "version": "0.1100.6"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {
+            "neutrinos-pwa-firebase": "1.0.0"
+        }
+    },
+    "neutrinos-pwa-sw-events": {
+        "name": "neutrinos-pwa-sw-events",
+        "version": "1.0.0",
+        "deps": {
+            "neutrinos-pwa-sw-events": {
+                "name": "neutrinos-pwa-sw-events",
+                "version": "1.0.0",
+                "packageType": "studio-nodes",
+                "nodes": {
+                    "client": [
+                        {
+                            "name": "0dc4c884-7b8a-0ecc-f4d7-b870622e3e00",
+                            "displayName": "Update Available"
+                        },
+                        {
+                            "name": "45621a11-65b2-9858-2b25-9379e7156b5d",
+                            "displayName": "Activate Update",
+                            "dependencies": [
+                                {
+                                    "name": "@angular/pwa",
+                                    "version": "0.1100.6"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "46cb8c62-b269-a538-af80-a4b51e575014",
+                            "displayName": "Check For Update"
+                        },
+                        {
+                            "name": "f412baa9-d069-e201-3526-023f8858abd7",
+                            "displayName": "Is SW Registered?"
+                        },
+                        {
+                            "name": "2d5bdb2d-08cf-f76a-eb02-9f6b36f60c43",
+                            "displayName": "On Notification",
+                            "dependencies": [
+                                {
+                                    "name": "@angular/pwa",
+                                    "version": "0.1100.6"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "e9c0942f-a2b9-0149-93b6-3282f8feb5f9",
+                            "displayName": "On Notification Click",
+                            "dependencies": [
+                                {
+                                    "name": "@angular/pwa",
+                                    "version": "0.1100.6"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "parentDeps": {
+            "neutrinos-pwa-sw-events": "1.0.0"
+        }
     }
 }

@@ -1,3 +1,4 @@
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -54,6 +55,7 @@ import { NeutrinosOAuthClientModule } from 'neutrinos-oauth-client';
 *imports for @NgModule
 */
 export const appImportModules: any = [
+                            ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.properties.production}),
 	BrowserModule,
 	FormsModule,
 	ReactiveFormsModule,

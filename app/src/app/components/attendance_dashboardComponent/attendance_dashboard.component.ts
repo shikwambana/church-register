@@ -87,7 +87,7 @@ export class attendance_dashboardComponent extends NBaseComponent implements OnI
     };
 
 
-    constructor(private api: apiService, private createfilesService: createfilesService) {
+    constructor(public api: apiService, private createfilesService: createfilesService) {
         super();
     }
 

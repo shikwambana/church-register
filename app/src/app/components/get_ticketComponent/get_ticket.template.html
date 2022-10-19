@@ -1,10 +1,16 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFill>
   <div fxLayout="column wrap" class="markContainer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
-    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img imgSrc="Web/header.png" class="headerImage"></div>
-    <div *ngIf="api.loader" class="fullWidth">
-      <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
+    <div fxLayout="column wrap" class="headerContainer" fxLayoutAlign="end start" [fxShow]="true" [fxHide]="false">
+      <div class="titleContainer">
+        <span class="title">Dr Tumi</span> live at The Volt Tuks
+      </div>
     </div>
     <div fxLayout="column wrap" style="width: 35em;" class="fadeInDown headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+        <p style="padding: 0 20px;">
+          Claim your free ticket by filling in your details below. <br>
+          Remember to tell your friends about the concert</p>
+      </div>
       <form [formGroup]="registerForm" #myForm="ngForm" #formDirective="ngForm" style="display:contents">
         <div fxLayout="column " style="padding: 25px;" fxFlex="100" fxLayoutGap="15px" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false" id="theForm">
           <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
@@ -50,6 +56,9 @@
               <mat-label>Who Invited You? (Name &amp; Surname)</mat-label>
               <mat-icon matSuffix>person_add</mat-icon>
             </mat-form-field>
+          </div>
+          <div *ngIf="api.loader" class="fullWidth">
+            <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
           </div>
           <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Get My Ticket</button><button mat-button class="secondaryBtn" (click)="reloadPage()">Cancel</button></div>
         </div>

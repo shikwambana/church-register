@@ -20,6 +20,17 @@ html {
   box-shadow: 1px 1px 6px 3px #808080ba;
 }
 
+.headerContainer {
+  width: 100%;
+  max-width: 35em !important;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px 3px #808080ba;
+  height: 200px;
+  background-image: url("./assets/Web/Dr-Tumi1.jpg");
+  background-position: center;
+    background-size: cover;
+}
+
 .headerText {
   // text-align: center;
   padding: 15px;
@@ -28,6 +39,19 @@ html {
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 37%);
   width: 35em;
   margin: 15px 0;
+}
+
+.titleContainer {
+  color: white;
+  font-weight: bolder;
+  background: linear-gradient(0deg, rgb(2 0 36 / 88%) 0%, rgb(0 0 0 / 61%) 35%, rgb(233 233 233 / 0%) 70%);
+  border-radius: 10px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+.title {
+  font-size: xx-large;
 }
 
 .markContainer {

@@ -31,7 +31,7 @@ export class markregisterComponent extends NBaseComponent implements OnInit {
     newUser: boolean = true;
     data: unknown;
     enterData = true
-    constructor(private router: Router, private dialog: MatDialog, private formBuilder: FormBuilder, private api: apiService) {
+    constructor(private router: Router, private dialog: MatDialog, private formBuilder: FormBuilder, public api: apiService) {
         super();
     }
 
