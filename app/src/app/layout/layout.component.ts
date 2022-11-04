@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NLocalStorageService, NTokenService } from 'neutrinos-seed-services';
-
+// import { getMessaging, getToken, onMessage } from "firebase/messaging";
 @Component({
   selector: 'app-root',
   template: `<router-outlet></router-outlet>
