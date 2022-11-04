@@ -863,7 +863,6 @@
                 "919d82ed-fe8a-ae71-389a-56fab40760cd": {
                     "paletteKey": "FlexLayoutRow",
                     "parentEditorKey": "7e222796-c680-3f99-a680-8ebef1089a71",
-                    "isCommented": "false",
                     "designerReference": [
                         {
                             "_key": "componentLabel",
@@ -933,7 +932,6 @@
                         "paletteKey": "Html5",
                         "parentEditorKey": "919d82ed-fe8a-ae71-389a-56fab40760cd",
                         "isAdvancedComponent": true,
-                        "isCommented": "false",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -1120,7 +1118,6 @@
                             "paletteKey": "html-editor",
                             "parentEditorKey": "4f731a1a-f396-88cb-fb2b-5757fc88fa2d",
                             "isAdvancedChildComponent": true,
-                            "isCommented": "false",
                             "designerReference": [
                                 {
                                     "_key": "style",
@@ -1136,7 +1133,7 @@
                                 },
                                 {
                                     "_key": "html",
-                                    "_value": "Hi {{details.firstName}}, download your ticket by <span (click)=\"printTicket()\" class=\"primaryColor\">Clicking Here</span>\r\n<br><br>\r\nYou can also present this page at registration when you reach the venue for check in. Just add it to the home screen by clicking install app at the bottom\r\n<br><br>\r\nRemember, you can also let your friends know of the event on WhatsApp and Twitter.\r\n<br><br>\r\nSee you on Sunday, 23 October at 17:00",
+                                    "_value": "Hi {{details.firstName}}, download your ticket by <span (click)=\"printTicket()\" class=\"primaryColor\">Clicking Here</span>\r\n<br><br>\r\nYou can also present this page at registration when you reach the venue for check in. Just bookmark this page.\r\n<br><br>\r\nRemember, you can also let your friends know of the event on WhatsApp and Twitter.\r\n<br><br>\r\nSee you on Sunday",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 }
@@ -1430,6 +1427,137 @@
                             "_attrDef": "p"
                         }
                     ],
+                    "eba2846e-7b72-4028-1e42-8ebe92c2e833": {
+                        "paletteKey": "FlexLayoutCol",
+                        "parentEditorKey": "158832a2-247e-8346-5ba1-6e8737f706c7",
+                        "designerReference": [
+                            {
+                                "_key": "componentLabel",
+                                "_value": "Column",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": "",
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "fxFlex",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "fxLayoutGap",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "wrap",
+                                "_value": "wrap",
+                                "_type": "a",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "layoutAlign",
+                                "_value": "start",
+                                "_type": "a",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "pLayoutAlign",
+                                "_value": "stretch",
+                                "_type": "a",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[fxShow]",
+                                "_value": "true",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[fxHide]",
+                                "_value": "false",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ],
+                        "e2ab7024-d731-e8c1-e282-f8dc40a28763": {
+                            "paletteKey": "NG-RaisedButton",
+                            "parentEditorKey": "eba2846e-7b72-4028-1e42-8ebe92c2e833",
+                            "designerReference": [
+                                {
+                                    "_key": "style",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "class",
+                                    "_value": [
+                                        "primaryBtn"
+                                    ],
+                                    "_type": "dav",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "buttonname",
+                                    "_value": "Download My Ticket",
+                                    "_type": "a",
+                                    "_attrDef": "p",
+                                    "_useAsLabel": true
+                                },
+                                {
+                                    "_key": "color",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "(click)",
+                                    "_value": "printTicket()",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "[disabled]",
+                                    "_value": "downloading",
+                                    "_type": "kv",
+                                    "_attrDef": "p",
+                                    "_customAttributeFlag": true
+                                },
+                                {
+                                    "_key": "[disableRipple]",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "type",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "routerLink",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                }
+                            ]
+                        }
+                    },
                     "56a0b65f-0f48-a464-0c1d-847cf966ce56": {
                         "paletteKey": "FlexLayoutCol",
                         "parentEditorKey": "158832a2-247e-8346-5ba1-6e8737f706c7",
@@ -1516,7 +1644,7 @@
                                 },
                                 {
                                     "_key": "buttonname",
-                                    "_value": "Download My Ticket",
+                                    "_value": "Get Directions",
                                     "_type": "a",
                                     "_attrDef": "p",
                                     "_useAsLabel": true
@@ -1529,15 +1657,16 @@
                                 },
                                 {
                                     "_key": "(click)",
-                                    "_value": "printTicket()",
+                                    "_value": "direct()",
                                     "_type": "kv",
                                     "_attrDef": "p"
                                 },
                                 {
                                     "_key": "[disabled]",
-                                    "_value": "",
+                                    "_value": "downloading",
                                     "_type": "kv",
-                                    "_attrDef": "p"
+                                    "_attrDef": "p",
+                                    "_customAttributeFlag": true
                                 },
                                 {
                                     "_key": "[disableRipple]",
@@ -2751,7 +2880,7 @@
                                         },
                                         {
                                             "_key": "html",
-                                            "_value": "<img src=\"assets/Web/drtumi.png\" width=\"100%\">",
+                                            "_value": "<img src=\"assets/Web/Khaya.jpeg\" width=\"100%\">",
                                             "_type": "a",
                                             "_attrDef": "p"
                                         }

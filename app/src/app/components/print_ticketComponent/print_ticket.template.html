@@ -10,18 +10,19 @@
         <p>
           Hi {{details.firstName}}, download your ticket by <span (click)="printTicket()" class="primaryColor">Clicking Here</span>
           <br><br>
-          You can also present this page at registration when you reach the venue for check in. Just add it to the home screen by clicking install app at the bottom
+          You can also present this page at registration when you reach the venue for check in. Just bookmark this page.
           <br><br>
           Remember, you can also let your friends know of the event on WhatsApp and Twitter.
           <br><br>
-          See you on Sunday, 23 October at 17:00
+          See you on Sunday
         </p>
       </div>
       <div *ngIf="downloading" class="fullWidth">
         <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
       </div>
       <div fxLayout="row " style="padding:15px 0;border-bottom: 1px dotted black;" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="printTicket()">Download My Ticket</button></div>
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="printTicket()" [disabled]="downloading">Download My Ticket</button></div>
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="direct()" [disabled]="downloading">Get Directions</button></div>
         <div *ngFor="let item of socialMediaIcons">
           <a href="{{item.link}}" target="_blank">
             <img src="{{item.icon}}" (click)="share(item)" width="30px">
@@ -48,7 +49,7 @@
           </div>
           <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
             <div>
-              <img src="assets/Web/drtumi.png" width="100%">
+              <img src="assets/Web/Khaya.jpeg" width="100%">
             </div>
           </div>
         </div>

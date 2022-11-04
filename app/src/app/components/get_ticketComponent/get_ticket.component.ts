@@ -43,6 +43,7 @@ export class get_ticketComponent extends NBaseComponent implements OnInit {
             id: [this.makeid(5), Validators.required],
             email: ['', [Validators.required]],
             gender: ['', Validators.required],
+            time: ['', Validators.required],
             address: ['', Validators.required],
             firstTimeVisitor: [true, Validators.required],
             whoInvitedYou: ['', Validators.required],

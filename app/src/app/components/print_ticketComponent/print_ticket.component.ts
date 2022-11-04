@@ -38,12 +38,12 @@ export class print_ticketComponent extends NBaseComponent implements OnInit {
         this.socialMediaIcons = [
             {
                 name: 'WhatsApp',
-                link: 'whatsapp://send?Hey,%20I%20am%20going%20to%20a%20Free%20Dr%20Tumi%20Concert%20this%20Sunday%20and%20wanted%20you%20to%20come%20along.%20You%20can%20reserve%20a%20seat%20on%20this%20website:%20http://volt3c.web.app?inviteBy=' + this.details.firstName + '%20' + this.details.lastName,
+                link: 'https://api.whatsapp.com/send?Hey,%20I%20am%20going%20to%20a%20Free%20Khaya%20Mthethwa%20Concert%20this%20Sunday%20and%20wanted%20you%20to%20come%20along.%20You%20can%20reserve%20a%20seat%20on%20this%20website:%20http://volt3c.web.app?inviteBy=' + this.details.firstName + '%20' + this.details.lastName,
                 icon: 'assets/Web/Icons/whatsapp.png'
             },
             {
                 name: 'Twitter',
-                link: 'https://twitter.com/intent/tweet?source=tweetbutton&text=Hey,%20I%20am%20going%20to%20a%20Free%20Dr%20Tumi%20Concert%20this%20Sunday%20and%20wanted%20you%20to%20come%20along.%20You%20can%20reserve%20a%20seat%20on%20this%20website:%20http://volt3c.web.app/&url=https://volt3c.web.app?inviteBy=' + this.details.firstName + '-' + this.details.lastName,
+                link: 'https://twitter.com/intent/tweet?source=tweetbutton&text=Hey,%20I%20am%20going%20to%20a%20Free%20Khaya%20Mthethwa%20Concert%20this%20Sunday%20and%20wanted%20you%20to%20come%20along.%20You%20can%20reserve%20a%20seat%20on%20this%20website:%20http://volt3c.web.app/&url=https://volt3c.web.app?inviteBy=' + this.details.firstName + '-' + this.details.lastName,
                 icon: 'assets/Web/Icons/twitter.png'
             },
             // {
@@ -52,6 +52,10 @@ export class print_ticketComponent extends NBaseComponent implements OnInit {
             //     icon: 'assets/Web/Icons/facebook.png'
             // }
         ]
+    }
+
+    direct() {
+        window.open('https://goo.gl/maps/87qBPhE72pqXjLMC8', "_blank");
     }
 
     printTicket() {

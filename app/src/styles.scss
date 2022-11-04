@@ -16,18 +16,18 @@ html {
 .headerImage {
   width: 100%;
   max-width: 35em;
-  border-radius: 10px;
+  // border-radius: 10px;
   box-shadow: 1px 1px 6px 3px #808080ba;
 }
 
 .headerContainer {
   width: 100%;
   max-width: 35em !important;
-  border-radius: 10px;
-  box-shadow: 1px 1px 6px 3px #808080ba;
-  height: 200px;
-  background-image: url("./assets/Web/Dr-Tumi1.jpg");
-  background-position: center;
+  // border-radius: 10px;
+  // box-shadow: 1px 1px 6px 3px #808080ba;
+  height: 400px;
+  background-image: url("./assets/Web/Khaya.jpeg");
+  background-position: top;
     background-size: cover;
 }
 
@@ -55,9 +55,9 @@ html {
 }
 
 .markContainer {
-  margin: 30px auto;
+  // margin: 30px auto;
   width: 100%;
-  padding: 0 12px;
+  // padding: 0 12px;
 }
 
 .mobileColumn {

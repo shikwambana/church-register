@@ -2,14 +2,15 @@
   <div fxLayout="column wrap" class="markContainer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
     <div fxLayout="column wrap" class="headerContainer" fxLayoutAlign="end start" [fxShow]="true" [fxHide]="false">
       <div class="titleContainer">
-        <span class="title">Dr Tumi</span> live at The Volt Tuks
+        <span class="title">FREE ENTRANCE</span> Register Below
       </div>
     </div>
     <div fxLayout="column wrap" style="width: 35em;" class="fadeInDown headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
       <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <p style="padding: 0 20px;">
-          Claim your free ticket by filling in your details below. <br>
-          Remember to tell your friends about the concert</p>
+          <b>Claim your free ticket</b> by filling in your details below. <br>
+          Remember to tell your friends about the concert
+        </p>
       </div>
       <form [formGroup]="registerForm" #myForm="ngForm" #formDirective="ngForm" style="display:contents">
         <div fxLayout="column " style="padding: 25px;" fxFlex="100" fxLayoutGap="15px" fxLayoutAlign="start space-between" [fxShow]="true" [fxHide]="false" id="theForm">
@@ -43,6 +44,21 @@
                 </div>
                 <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
                   <mat-radio-button [value]="&apos;Female&apos;" [required]="false">Female</mat-radio-button>
+                </div>
+              </div>
+            </mat-radio-group>
+            <mat-radio-group formControlName="time" [labelPosition]="&apos;after&apos;" [required]="true">
+              <div fxLayout="column wrap" style="margin-bottom:20px" fxLayoutGap="10px" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+                <p>
+                  Which session are you coming to?</p>
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <mat-radio-button [value]="&apos;15:00&apos;" [required]="false" [labelPosition]="&apos;after&apos;">15:00</mat-radio-button>
+                </div>
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <mat-radio-button [value]="&apos;16:30&apos;" [required]="false" [labelPosition]="&apos;after&apos;">16:30</mat-radio-button>
+                </div>
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                  <mat-radio-button [value]="&apos;18:00&apos;" [required]="false">18:00</mat-radio-button>
                 </div>
               </div>
             </mat-radio-group>
