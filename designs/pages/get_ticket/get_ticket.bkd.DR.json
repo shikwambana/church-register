@@ -413,7 +413,7 @@
                             },
                             {
                                 "_key": "html",
-                                "_value": "<span class=\"title\">FREE ENTRANCE</span> Register Below",
+                                "_value": "<!-- <span class=\"title\">FREE ENTRANCE</span>  -->",
                                 "_type": "a",
                                 "_attrDef": "p"
                             }
@@ -761,7 +761,7 @@
                                 },
                                 {
                                     "_key": "html",
-                                    "_value": "<b>Claim your free ticket</b> by filling in your details below. <br>\r\nRemember to tell your friends about the concert",
+                                    "_value": "<b>Claim your free ticket</b> by filling in your details below. <br>\r\nRemember to tell your friends about the concert.<br><br>\r\nDate: 06 November 2022 <br>\r\nLocation: <a href=\"https://goo.gl/maps/87qBPhE72pqXjLMC8\" target=\"_blank\">209 Roper Street, Brooklyn  <mat-icon style=\"font-size:inherit;\">directions</mat-icon></a><br>\r\nSessions: 15:00 | 16:30 | 18:00\r\n",
                                     "_type": "a",
                                     "_attrDef": "p"
                                 }
@@ -2358,7 +2358,6 @@
                             "e3fef04a-4619-854b-666b-f66f7fcd501f": {
                                 "paletteKey": "NG-RadioGroup",
                                 "parentEditorKey": "5d15dc70-d2d0-127b-5faa-627a82c8d3c5",
-                                "isCommented": "false",
                                 "designerReference": [
                                     {
                                         "_key": "componentLabel",
@@ -2437,7 +2436,6 @@
                                 "0f43c57a-9728-a409-3e03-2673ceb80f3a": {
                                     "paletteKey": "FlexLayoutCol",
                                     "parentEditorKey": "e3fef04a-4619-854b-666b-f66f7fcd501f",
-                                    "isCommented": "false",
                                     "designerReference": [
                                         {
                                             "_key": "componentLabel",
@@ -2505,7 +2503,6 @@
                                         "paletteKey": "Html5",
                                         "parentEditorKey": "0f43c57a-9728-a409-3e03-2673ceb80f3a",
                                         "isAdvancedComponent": true,
-                                        "isCommented": "false",
                                         "designerReference": [
                                             {
                                                 "_key": "style",
@@ -2692,7 +2689,6 @@
                                             "paletteKey": "html-editor",
                                             "parentEditorKey": "a5efce12-ce2b-01ff-6901-e5cc92780ce7",
                                             "isAdvancedChildComponent": true,
-                                            "isCommented": "false",
                                             "designerReference": [
                                                 {
                                                     "_key": "style",
@@ -2718,7 +2714,6 @@
                                     "0d409596-2dc3-fb0b-995e-4d54057e6ef3": {
                                         "paletteKey": "FlexLayoutCol",
                                         "parentEditorKey": "0f43c57a-9728-a409-3e03-2673ceb80f3a",
-                                        "isCommented": "false",
                                         "designerReference": [
                                             {
                                                 "_key": "componentLabel",
@@ -2785,7 +2780,6 @@
                                         "361b4269-029b-ec14-3ae1-a118e9627d6d": {
                                             "paletteKey": "NG-Radio",
                                             "parentEditorKey": "0d409596-2dc3-fb0b-995e-4d54057e6ef3",
-                                            "isCommented": "false",
                                             "designerReference": [
                                                 {
                                                     "_key": "style",
@@ -2878,7 +2872,6 @@
                                     "58b32346-7ccd-3095-1e95-138cbbcae986": {
                                         "paletteKey": "FlexLayoutCol",
                                         "parentEditorKey": "0f43c57a-9728-a409-3e03-2673ceb80f3a",
-                                        "isCommented": "false",
                                         "designerReference": [
                                             {
                                                 "_key": "componentLabel",
@@ -2945,7 +2938,6 @@
                                         "d1a552dd-cd7e-8a87-a796-57c88f5f95ee": {
                                             "paletteKey": "NG-Radio",
                                             "parentEditorKey": "58b32346-7ccd-3095-1e95-138cbbcae986",
-                                            "isCommented": "false",
                                             "designerReference": [
                                                 {
                                                     "_key": "style",
@@ -3038,7 +3030,6 @@
                                     "bfdee2a8-d497-a6bb-c9c5-76bd1f2716b3": {
                                         "paletteKey": "FlexLayoutCol",
                                         "parentEditorKey": "0f43c57a-9728-a409-3e03-2673ceb80f3a",
-                                        "isCommented": "false",
                                         "designerReference": [
                                             {
                                                 "_key": "componentLabel",
@@ -3105,7 +3096,6 @@
                                         "04adb5e3-dc3d-901c-7a16-69b04e6f141f": {
                                             "paletteKey": "NG-Radio",
                                             "parentEditorKey": "bfdee2a8-d497-a6bb-c9c5-76bd1f2716b3",
-                                            "isCommented": "false",
                                             "designerReference": [
                                                 {
                                                     "_key": "style",
@@ -3845,6 +3835,7 @@
                                     {
                                         "_key": "class",
                                         "_value": [
+                                            "callToActionMobile",
                                             "primaryBtn"
                                         ],
                                         "_type": "dav",
@@ -3866,69 +3857,6 @@
                                     {
                                         "_key": "(click)",
                                         "_value": "onSubmit(formDirective)",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "[disabled]",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "[disableRipple]",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "type",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "routerLink",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    }
-                                ]
-                            },
-                            "4a7b26bb-fbb2-e290-b5e2-1e58425c90cc": {
-                                "paletteKey": "NG-button",
-                                "parentEditorKey": "0226c602-60a9-4645-6368-3a03d41267fe",
-                                "designerReference": [
-                                    {
-                                        "_key": "style",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "class",
-                                        "_value": [
-                                            "secondaryBtn"
-                                        ],
-                                        "_type": "dav",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "buttonname",
-                                        "_value": "Cancel",
-                                        "_type": "a",
-                                        "_attrDef": "p",
-                                        "_useAsLabel": true
-                                    },
-                                    {
-                                        "_key": "color",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "(click)",
-                                        "_value": "reloadPage()",
                                         "_type": "kv",
                                         "_attrDef": "p"
                                     },

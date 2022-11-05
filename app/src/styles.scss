@@ -25,10 +25,10 @@ html {
   max-width: 35em !important;
   // border-radius: 10px;
   // box-shadow: 1px 1px 6px 3px #808080ba;
-  height: 400px;
-  background-image: url("./assets/Web/Khaya.jpeg");
+  height: 425px;
+  background-image: url("./assets/Web/Khaya-mthethwa.jpg");
   background-position: top;
-    background-size: cover;
+  background-size: cover;
 }
 
 .headerText {
@@ -36,7 +36,7 @@ html {
   padding: 15px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 37%);
+  // box-shadow: 0 1px 4px 0 rgb(0 0 0 / 37%);
   width: 35em;
   margin: 15px 0;
 }
@@ -52,6 +52,7 @@ html {
 
 .title {
   font-size: xx-large;
+  white-space: no-wrap;
 }
 
 .markContainer {
@@ -65,6 +66,12 @@ html {
   padding: 15px;
 }
 
+.callToActionMobile {
+  width: 100%;
+  padding: 10px !important;
+  font-size: 20px;
+  box-shadow: none !important;
+}
 .primaryBtn {
   background-color: $primaryColour;
   color: $white;
@@ -72,9 +79,10 @@ html {
 }
 
 .secondaryBtn {
-  margin: 0 10px !important;
-  border: 1px solid seagreen !important;
+  // margin: 0 10px !important;
+  border: 1px solid $primaryColour !important;
   min-width: 120px !important;
+  color: $primaryColour;
 }
 
 .mat-expansion-panel-header-description,
@@ -111,8 +119,6 @@ html {
 }
 
 .serviceDropDownMobile {
-  
-  
 }
 .serviceDropDown {
   .mat-form-field {

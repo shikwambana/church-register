@@ -8,21 +8,41 @@
       </div>
       <div fxLayout="row wrap" class="width100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <p>
-          Hi {{details.firstName}}, download your ticket by <span (click)="printTicket()" class="primaryColor">Clicking Here</span>
+          Hi {{details.firstName}}, download your ticket by <span style="cursor:pointer" (click)="printTicket()" class="primaryColor">Clicking Here</span>
           <br><br>
           You can also present this page at registration when you reach the venue for check in. Just bookmark this page.
           <br><br>
-          Remember, you can also let your friends know of the event on WhatsApp and Twitter.
+          Remember, you can also let your friends know of the event on WhatsApp.
           <br><br>
           See you on Sunday
+          <br><br>
         </p>
       </div>
       <div *ngIf="downloading" class="fullWidth">
         <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
       </div>
+      <div fxLayout="row " fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="printTicket()" [disabled]="downloading">
+            <mat-icon>get_app</mat-icon> Download My Ticket
+          </button></div>
+        <div>
+          <!-- <a href="https://volt3c.web.app?invite={{details.firstName}}+{{details.lastName}}" target="_blank"
+	style="padding: 10px;" class="secondaryBtn">
+	Get More Tickets
+</a> -->
+          <a href="https://volt3c.web.app?invite={{details.firstName}}+{{details.lastName}}" target="_blank">
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <button mat-flat-button class="secondaryBtn">
+                <mat-icon>confirmation_number</mat-icon> Get More Tickets
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
       <div fxLayout="row " style="padding:15px 0;border-bottom: 1px dotted black;" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="printTicket()" [disabled]="downloading">Download My Ticket</button></div>
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="direct()" [disabled]="downloading">Get Directions</button></div>
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="secondaryBtn" (click)="direct()">
+            <mat-icon>directions</mat-icon> Get Directions
+          </button></div>
         <div *ngFor="let item of socialMediaIcons">
           <a href="{{item.link}}" target="_blank">
             <img src="{{item.icon}}" (click)="share(item)" width="30px">
@@ -31,33 +51,60 @@
       </div>
       <div fxLayout="row wrap" class="padding10px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" id="ticket-info">
         <div fxLayout="column " fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
-            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="column " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
               <h3 class="primaryColor width100">
-                Ticket #{{details.id}} - {{details.firstName}} {{details.lastName}}
+                Ticket #{{details.id}}
               </h3>
               <p>
-                Name: <b>{{details.firstName}} {{details.lastName}}</b><br>
+                Name: <b>{{details.firstName}}</b><br>
+                Surname: <b>{{details.lastName}}</b><br>
                 Phone Number: <b>{{details.contactNumber}}</b><br>
                 Email: <b>{{details.email}}</b><br>
                 Gender: <b>{{details.gender}}</b><br>
                 Invited By: <b>{{details.whoInvitedYou}}</b><br>
                 Flat/Res: <b>{{details.address}}</b><br><br>
 
+                Date: 06 November 2022 <br>
+                Location: <a href="https://goo.gl/maps/87qBPhE72pqXjLMC8" target="_blank">209 Roper Street, Brooklyn <mat-icon style="font-size:inherit;">directions</mat-icon></a><br>
+                Sessions: 15:00 | 16:30 | 18:00<br><br>
+
                 Get More Tickets on <b>https://volt3c.web.app</b></p>
             </div>
           </div>
-          <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
             <div>
-              <img src="assets/Web/Khaya.jpeg" width="100%">
+              <img src="assets/Web/Khaya-mthethwa.jpg" width="100%">
             </div>
           </div>
         </div>
       </div>
-      <div fxLayout="row " style="padding:25px 0" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
-        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="printTicket()">Download My Ticket</button></div>
+      <div fxLayout="row " fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="printTicket()" [disabled]="downloading">
+            <mat-icon>get_app</mat-icon> Download My Ticket
+          </button></div>
+        <div>
+          <!-- <a href="https://volt3c.web.app?invite={{details.firstName}}+{{details.lastName}}" target="_blank"
+	style="padding: 10px;" class="secondaryBtn">
+	Get More Tickets
+</a> -->
+          <a href="https://volt3c.web.app?invite={{details.firstName}}+{{details.lastName}}" target="_blank">
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <button mat-flat-button class="secondaryBtn">
+                <mat-icon>confirmation_number</mat-icon> Get More Tickets
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div fxLayout="row " style="padding:15px 0;border-bottom: 1px dotted black;" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="secondaryBtn" (click)="direct()">
+            <mat-icon>directions</mat-icon> Get Directions
+          </button></div>
         <div *ngFor="let item of socialMediaIcons">
-          <img src="{{item.icon}}" (click)="share(item)" width="30px">
+          <a href="{{item.link}}" target="_blank">
+            <img src="{{item.icon}}" (click)="share(item)" width="30px">
+          </a>
         </div>
       </div>
     </div>

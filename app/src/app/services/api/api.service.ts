@@ -17,7 +17,7 @@ export class apiService {
     addPerson(document) {
         let uuid = this.create_UUID();
         this.loader = true;
-        return this.db.collection('drtumi').doc(uuid).set(document)
+        return this.db.collection('khaya_mthethwa').doc(uuid).set(document)
             .then(res => {
                 this.loader = false;
                 console.log(res)

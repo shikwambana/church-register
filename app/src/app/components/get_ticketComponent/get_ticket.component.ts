@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular
 import { generic_dialogueComponent } from 'app/components/generic_dialogueComponent/generic_dialogue.component'
 import { apiService } from '../../services/api/api.service';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'bh-get_ticket',
@@ -26,13 +26,20 @@ export class get_ticketComponent extends NBaseComponent implements OnInit {
     alreadyRegistered: boolean = false;
     newUser: boolean = true;
     data: unknown;
-    enterData = true
-    constructor(private router: Router, private dialog: MatDialog, private formBuilder: FormBuilder, public api: apiService) {
+    enterData = true;
+    constructor(private router: Router, private activeRoute: ActivatedRoute, private dialog: MatDialog, private formBuilder: FormBuilder, public api: apiService) {
         super();
     }
 
     ngOnInit() {
         this.buildForm()
+        this.activeRoute.queryParams
+            .subscribe(params => {
+                console.log(params);
+                if (params['invite']) {
+                    this.registerForm.get('whoInvitedYou').setValue(params['invite'])
+                }
+            });
     }
 
     buildForm() {
@@ -46,7 +53,7 @@ export class get_ticketComponent extends NBaseComponent implements OnInit {
             time: ['', Validators.required],
             address: ['', Validators.required],
             firstTimeVisitor: [true, Validators.required],
-            whoInvitedYou: ['', Validators.required],
+            whoInvitedYou: [''],
             date: [new Date(), Validators.required],
             captureDate: ['']
         })
@@ -70,7 +77,7 @@ export class get_ticketComponent extends NBaseComponent implements OnInit {
         });
 
         return dialogRef.afterClosed().subscribe(res => {
-            this.router.navigate(['ticket/'+data.id])
+            this.router.navigate(['ticket/' + data.id])
             return res
         })
     }
@@ -91,7 +98,7 @@ export class get_ticketComponent extends NBaseComponent implements OnInit {
         }
 
         this.api.addPerson(this.f).then(res => {
-            sessionStorage.setItem('info',JSON.stringify(this.f))
+            sessionStorage.setItem('info', JSON.stringify(this.f))
             let data = {
                 message: 'Your details have being saved. Click Ok To Download Your Ticket',
                 icon: 'check_circle',
@@ -101,7 +108,7 @@ export class get_ticketComponent extends NBaseComponent implements OnInit {
             this.displayRegisterForm = false
             // this.showMessage(data)
             this.api.openSnackBar('Seat Reserved');
-            this.router.navigate(['ticket/'+data.id])
+            this.router.navigate(['ticket/' + data.id])
 
             this.onReset(formDirective);
 

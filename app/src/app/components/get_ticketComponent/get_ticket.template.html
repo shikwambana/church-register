@@ -2,14 +2,17 @@
   <div fxLayout="column wrap" class="markContainer" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false">
     <div fxLayout="column wrap" class="headerContainer" fxLayoutAlign="end start" [fxShow]="true" [fxHide]="false">
       <div class="titleContainer">
-        <span class="title">FREE ENTRANCE</span> Register Below
+        <!-- <span class="title">FREE ENTRANCE</span>  -->
       </div>
     </div>
     <div fxLayout="column wrap" style="width: 35em;" class="fadeInDown headerText" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
       <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
         <p style="padding: 0 20px;">
           <b>Claim your free ticket</b> by filling in your details below. <br>
-          Remember to tell your friends about the concert
+          Remember to tell your friends about the concert.<br><br>
+          Date: 06 November 2022 <br>
+          Location: <a href="https://goo.gl/maps/87qBPhE72pqXjLMC8" target="_blank">209 Roper Street, Brooklyn <mat-icon style="font-size:inherit;">directions</mat-icon></a><br>
+          Sessions: 15:00 | 16:30 | 18:00
         </p>
       </div>
       <form [formGroup]="registerForm" #myForm="ngForm" #formDirective="ngForm" style="display:contents">
@@ -76,7 +79,7 @@
           <div *ngIf="api.loader" class="fullWidth">
             <mat-progress-bar class="custom-progress" mode="indeterminate"></mat-progress-bar>
           </div>
-          <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primaryBtn" (click)="onSubmit(formDirective)">Get My Ticket</button><button mat-button class="secondaryBtn" (click)="reloadPage()">Cancel</button></div>
+          <div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="callToActionMobile primaryBtn" (click)="onSubmit(formDirective)">Get My Ticket</button></div>
         </div>
       </form>
     </div>
